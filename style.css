@@ -1624,6 +1624,78 @@ tbody tr:hover td {
   color: #232020;
 }
 
+.out-cover-toggle {
+  position: relative;
+  display: block;
+  width: 32px;
+  height: 29px;
+  padding: 0;
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.out-cover-toggle::before, .out-cover-toggle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 5px;
+  margin: auto;
+  background-color: currentColor;
+  -webkit-transition: top 0.25s 0.25s, bottom 0.25s 0.25s, -webkit-transform 0.25s;
+  transition: top 0.25s 0.25s, bottom 0.25s 0.25s, -webkit-transform 0.25s;
+  transition: top 0.25s 0.25s, bottom 0.25s 0.25s, transform 0.25s;
+  transition: top 0.25s 0.25s, bottom 0.25s 0.25s, transform 0.25s, -webkit-transform 0.25s;
+}
+
+.out-cover-toggle::before {
+  top: 0;
+}
+
+.out-cover-toggle::after {
+  bottom: 0;
+}
+
+.out-cover-toggle--fired::before, .out-cover-toggle--fired::after {
+  -webkit-transition: top 0.25s, bottom 0.25s, -webkit-transform 0.25s 0.25s;
+  transition: top 0.25s, bottom 0.25s, -webkit-transform 0.25s 0.25s;
+  transition: top 0.25s, bottom 0.25s, transform 0.25s 0.25s;
+  transition: top 0.25s, bottom 0.25s, transform 0.25s 0.25s, -webkit-transform 0.25s 0.25s;
+}
+
+.out-cover-toggle--fired::before {
+  top: calc(50% - 2.5px);
+  -webkit-transform: rotate(-45deg) scale(1.2);
+          transform: rotate(-45deg) scale(1.2);
+}
+
+.out-cover-toggle--fired::after {
+  bottom: calc(50% - 2.5px);
+  -webkit-transform: rotate(45deg) scale(1.2);
+          transform: rotate(45deg) scale(1.2);
+}
+
+.out-cover-toggle__line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  margin: auto;
+  background-color: currentColor;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.out-cover-toggle--fired .out-cover-toggle__line {
+  opacity: 0;
+}
+
 .header-layout__top {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -1915,78 +1987,6 @@ tbody tr:hover td {
   .main-nav__list {
     display: none;
   }
-}
-
-.out-cover-toggle {
-  position: relative;
-  display: block;
-  width: 32px;
-  height: 29px;
-  padding: 0;
-  border: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-}
-
-.out-cover-toggle::before, .out-cover-toggle::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 5px;
-  margin: auto;
-  background-color: currentColor;
-  -webkit-transition: top 0.25s 0.25s, bottom 0.25s 0.25s, -webkit-transform 0.25s;
-  transition: top 0.25s 0.25s, bottom 0.25s 0.25s, -webkit-transform 0.25s;
-  transition: top 0.25s 0.25s, bottom 0.25s 0.25s, transform 0.25s;
-  transition: top 0.25s 0.25s, bottom 0.25s 0.25s, transform 0.25s, -webkit-transform 0.25s;
-}
-
-.out-cover-toggle::before {
-  top: 0;
-}
-
-.out-cover-toggle::after {
-  bottom: 0;
-}
-
-.out-cover-toggle--fired::before, .out-cover-toggle--fired::after {
-  -webkit-transition: top 0.25s, bottom 0.25s, -webkit-transform 0.25s 0.25s;
-  transition: top 0.25s, bottom 0.25s, -webkit-transform 0.25s 0.25s;
-  transition: top 0.25s, bottom 0.25s, transform 0.25s 0.25s;
-  transition: top 0.25s, bottom 0.25s, transform 0.25s 0.25s, -webkit-transform 0.25s 0.25s;
-}
-
-.out-cover-toggle--fired::before {
-  top: calc(50% - 2.5px);
-  -webkit-transform: rotate(-45deg) scale(1.2);
-          transform: rotate(-45deg) scale(1.2);
-}
-
-.out-cover-toggle--fired::after {
-  bottom: calc(50% - 2.5px);
-  -webkit-transform: rotate(45deg) scale(1.2);
-          transform: rotate(45deg) scale(1.2);
-}
-
-.out-cover-toggle__line {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  height: 5px;
-  margin: auto;
-  background-color: currentColor;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
-}
-
-.out-cover-toggle--fired .out-cover-toggle__line {
-  opacity: 0;
 }
 
 .textual {
