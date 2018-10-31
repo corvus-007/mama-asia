@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>Menu page</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+  <div class="site-wrapper">
+    <style>
+  .splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    background-color: #ffffff;
+    transition: 0.3s;
+  }
+
+  .splash-screen--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .sk-folding-cube {
+    margin: 20px auto;
+    width: 82px;
+    height: 82px;
+    position: relative;
+    transform: rotateZ(45deg);
+  }
+
+  .sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    transform: scale(1.1);
+  }
+  .sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffbc53;
+    animation: sk-foldCubeAngle 2.4s infinite linear both;
+  }
+  .sk-folding-cube .sk-cube2 {
+    transform: scale(1.1) rotateZ(90deg);
+  }
+  .sk-folding-cube .sk-cube3 {
+    transform: scale(1.1) rotateZ(180deg);
+  }
+  .sk-folding-cube .sk-cube4 {
+    transform: scale(1.1) rotateZ(270deg);
+  }
+  .sk-folding-cube .sk-cube2:before {
+    animation-delay: 0.3s;
+  }
+  .sk-folding-cube .sk-cube3:before {
+    animation-delay: 0.6s;
+  }
+  .sk-folding-cube .sk-cube4:before {
+    animation-delay: 0.9s;
+  }
+
+  @keyframes sk-foldCubeAngle {
+    0%, 10% {
+      transform: perspective(140px) rotateX(-180deg);
+      opacity: 0;
+    } 25%, 75% {
+      transform: perspective(140px) rotateX(0deg);
+      opacity: 1;
+    } 90%, 100% {
+      transform: perspective(140px) rotateY(180deg);
+      opacity: 0;
+    }
+  }
+</style>
+<div id="splash-screen" class="splash-screen">
+  <div class="splash-screen__item">
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="header-layout">
+      <div class="header-layout__top">
+        <div class="header-layout__top-inner container">
+          <div class="header-layout__logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+          </div>
+          <div class="header-layout__phones">
+            <p class="header-phones">
+              <a class="header-phones__item" href="tel:+74832305012"><span>+7 (4832)</span> <b>305-012</b></a>
+              <a class="header-phones__item" href="tel:+79308265806"><span>+7 (930)</span> <b>826-58-06</b></a>
+            </p>
+          </div>
+          <div class="header-layout__info">
+            <div class="header-info">
+              <p class="header-info__item header-info__orders">
+                <b>Прием заказов:</b> с 10:00 до 21:00
+              </p>
+              <p class="header-info__item header-info__delivery">
+                <b>Доставка:</b> с 11:00 до 21:45
+                <small class="header-info__note">Доставка бесплатно от 600руб.</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-layout__bottom">
+        <div class="header-layout__bottom-inner container">
+          <div class="header-layout__nav">
+            <nav class="main-nav">
+              <button class="main-nav__toggle out-cover-toggle" type="button" aria-label="Показать меню">
+                <span class="out-cover-toggle__line"></span>
+              </button>
+              <ul class="main-nav__list">
+                <li class="current-menu-item"><a href="menu-page.html">Меню</a></li>
+                <li><a href="delivery-page.html">Доставка</a></li>
+                <li><a href="">Акции</a></li>
+                <li><a href="about-page.html">О нас</a></li>
+                <li><a href="contact-page.html">Контакты</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-layout__actions">
+            <div class="header-actions">
+              <div class="header-actions__item">
+                <div class="header-search-box">
+                  <form action="" autocomplete="off" class="header-search-box__form">
+                    <input class="header-search-box__input input" type="search" name="q">
+                    <button class="header-search-box__submit" type="submit" aria-label="Искать">
+                      <svg class="header-search-box__submit-icon" width="16" height="16">
+                        <use xlink:href="images/symbols.svg#magnify"></use>
+                      </svg>
+                    </button>
+                  </form>
+                  <button class="header-actions__action header-search-box__toggle" type="button" aria-label="Показать форму поиска">
+                    <svg class="header-actions__icon header-search-box__toggle-icon" width="16" height="16">
+                      <use xlink:href="images/symbols.svg#magnify"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="header-actions__item">
+                <a class="header-actions__action header-cart" href="" aria-label="Перейти в корзину">
+                  <svg class="header-actions__icon header-cart__icon" width="16" height="16">
+                    <use xlink:href="images/symbols.svg#cart"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <main class="main-layout">
+      <article class="page-layout">
+        <div class="page-layout__banner">
+          <div class="page-layout__header">
+            <div class="container">
+              <h1 class="page-layout__title common-title">Меню</h1>
+            </div>
+          </div>
+        </div>
+        <div class="page-layout__breadcrumbs breadcrumbs container">
+          <ul class="breadcrumbs__list">
+            <li><a href="index.html">Главная</a></li>
+            <li>Меню</li>
+          </ul>
+        </div>
+        <div class="page-layout__main catalog">
+          <div class="container">
+            <ul class="catalog-list">
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=efe01df2ebde79714be88d560479c9c7&auto=format&fit=crop&w=1350&q=80" alt="Пицца">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">Пицца</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1537280589715-826ccc7979c9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bdc16e9a59f4a8b4cd76c53dcd13350c&auto=format&fit=crop&w=1350&q=80" alt="Сеты">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">Сеты</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1534817557314-c781397d0b87?ixlib=rb-0.3.5&s=56fc284ccfcfad660520e4d5c312af0a&auto=format&fit=crop&w=1350&q=80" alt="Роллы">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">Роллы</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1513613593045-5f00c10fb8d6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=297206196d49a9977d38b253acb1e18c&auto=format&fit=crop&w=708&q=80" alt="WOK Лапша / Рис">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">WOK Лапша / Рис</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1464500542410-1396074bf230?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4f9df220f626c3c10f0ed8389c180c02&auto=format&fit=crop&w=1482&q=80" alt="Конструктор WOK">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">Конструктор WOK</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4c158f22af1fe9c21fbb0effd2d30d&auto=format&fit=crop&w=1350&q=80" alt="Супы / Салаты">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">Супы / Салаты</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1499126167718-c87f5c1387e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8dd5e1436f7433dd9d1bf831725391c1&auto=format&fit=crop&w=1489&q=80" alt="Соуса / Допы">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">Соуса / Допы</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1457518919282-b199744eefd6?ixlib=rb-0.3.5&s=e2434e3ded24b52247429f3724facc95&auto=format&fit=crop&w=1352&q=80" alt="Напитки">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">Напитки</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li class="catalog-list__item">
+                <div class="catalog-card">
+                  <a class="catalog-card__wraplink" href="category-page.html">
+                    <div class="catalog-card__picture">
+                      <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=07df4ad552d3627b7cbc7836321d9a03&auto=format&fit=crop&w=1350&q=80" alt="Десерты">
+                    </div>
+                    <div class="catalog-card__content">
+                      <h2 class="catalog-card__title">Десерты</h2>
+                    </div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">Site footer</div>
+    </footer>
+
+    <div class="out-cover">
+      <div class="out-cover__inner">
+        <div class="out-cover__body">
+          <div class="out-cover__mobile-nav mobile-nav">
+            <ul class="mobile-nav__list">
+              <li class="current-menu-item"><a href="menu-page.html">Меню</a></li>
+              <li><a href="delivery-page.html">Доставка</a></li>
+              <li><a href="">Акции</a></li>
+              <li><a href="about-page.html">О нас</a></li>
+              <li><a href="contact-page.html">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="out-cover__footer container">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-popup" id="offer-popup" hidden>
+      <h2>offer-popup</h2>
+    </div>
+
+
+  </div>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/modules.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>

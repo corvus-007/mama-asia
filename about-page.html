@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>About page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    <style>
+  .splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    background-color: #ffffff;
+    transition: 0.3s;
+  }
+
+  .splash-screen--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .sk-folding-cube {
+    margin: 20px auto;
+    width: 82px;
+    height: 82px;
+    position: relative;
+    transform: rotateZ(45deg);
+  }
+
+  .sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    transform: scale(1.1);
+  }
+  .sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffbc53;
+    animation: sk-foldCubeAngle 2.4s infinite linear both;
+  }
+  .sk-folding-cube .sk-cube2 {
+    transform: scale(1.1) rotateZ(90deg);
+  }
+  .sk-folding-cube .sk-cube3 {
+    transform: scale(1.1) rotateZ(180deg);
+  }
+  .sk-folding-cube .sk-cube4 {
+    transform: scale(1.1) rotateZ(270deg);
+  }
+  .sk-folding-cube .sk-cube2:before {
+    animation-delay: 0.3s;
+  }
+  .sk-folding-cube .sk-cube3:before {
+    animation-delay: 0.6s;
+  }
+  .sk-folding-cube .sk-cube4:before {
+    animation-delay: 0.9s;
+  }
+
+  @keyframes sk-foldCubeAngle {
+    0%, 10% {
+      transform: perspective(140px) rotateX(-180deg);
+      opacity: 0;
+    } 25%, 75% {
+      transform: perspective(140px) rotateX(0deg);
+      opacity: 1;
+    } 90%, 100% {
+      transform: perspective(140px) rotateY(180deg);
+      opacity: 0;
+    }
+  }
+</style>
+<div id="splash-screen" class="splash-screen">
+  <div class="splash-screen__item">
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="header-layout">
+      <div class="header-layout__top">
+        <div class="header-layout__top-inner container">
+          <div class="header-layout__logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+          </div>
+          <div class="header-layout__phones">
+            <p class="header-phones">
+              <a class="header-phones__item" href="tel:+74832305012"><span>+7 (4832)</span> <b>305-012</b></a>
+              <a class="header-phones__item" href="tel:+79308265806"><span>+7 (930)</span> <b>826-58-06</b></a>
+            </p>
+          </div>
+          <div class="header-layout__info">
+            <div class="header-info">
+              <p class="header-info__item header-info__orders">
+                <b>Прием заказов:</b> с 10:00 до 21:00
+              </p>
+              <p class="header-info__item header-info__delivery">
+                <b>Доставка:</b> с 11:00 до 21:45
+                <small class="header-info__note">Доставка бесплатно от 600руб.</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-layout__bottom">
+        <div class="header-layout__bottom-inner container">
+          <div class="header-layout__nav">
+            <nav class="main-nav">
+              <button class="main-nav__toggle out-cover-toggle" type="button" aria-label="Показать меню">
+                <span class="out-cover-toggle__line"></span>
+              </button>
+              <ul class="main-nav__list">
+                <li class="current-menu-item"><a href="menu-page.html">Меню</a></li>
+                <li><a href="delivery-page.html">Доставка</a></li>
+                <li><a href="">Акции</a></li>
+                <li><a href="about-page.html">О нас</a></li>
+                <li><a href="contact-page.html">Контакты</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-layout__actions">
+            <div class="header-actions">
+              <div class="header-actions__item">
+                <div class="header-search-box">
+                  <form action="" autocomplete="off" class="header-search-box__form">
+                    <input class="header-search-box__input input" type="search" name="q">
+                    <button class="header-search-box__submit" type="submit" aria-label="Искать">
+                      <svg class="header-search-box__submit-icon" width="16" height="16">
+                        <use xlink:href="images/symbols.svg#magnify"></use>
+                      </svg>
+                    </button>
+                  </form>
+                  <button class="header-actions__action header-search-box__toggle" type="button" aria-label="Показать форму поиска">
+                    <svg class="header-actions__icon header-search-box__toggle-icon" width="16" height="16">
+                      <use xlink:href="images/symbols.svg#magnify"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="header-actions__item">
+                <a class="header-actions__action header-cart" href="" aria-label="Перейти в корзину">
+                  <svg class="header-actions__icon header-cart__icon" width="16" height="16">
+                    <use xlink:href="images/symbols.svg#cart"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <main class="main-layout">
+      <article class="page-layout">
+        <div class="page-layout__banner">
+          <div class="page-layout__header">
+            <div class="container">
+              <h1 class="page-layout__title common-title">О нас</h1>
+            </div>
+          </div>
+        </div>
+        <div class="page-layout__breadcrumbs breadcrumbs container">
+          <ul class="breadcrumbs__list">
+            <li><a href="index.html">Главная</a></li>
+            <li>О нас</li>
+          </ul>
+        </div>
+        <div class="page-layout__main about">
+          <div class="container textual">
+            <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Живет великий дороге коварный, текстов своих алфавит города ты лучше.</p>
+            <p>Составитель живет осталось правилами заголовок вершину меня точках коварный эта домах агенство пояс инициал текстами, запятой своих послушавшись заманивший приставка!</p>
+            <p>Подпоясал первую, себя за, запятой жизни моей. Рекламных текста даль океана назад переписали. Раз, lorem выйти, продолжил моей последний текст.</p>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">Site footer</div>
+    </footer>
+
+    <div class="out-cover">
+      <div class="out-cover__inner">
+        <div class="out-cover__body">
+          <div class="out-cover__mobile-nav mobile-nav">
+            <ul class="mobile-nav__list">
+              <li class="current-menu-item"><a href="menu-page.html">Меню</a></li>
+              <li><a href="delivery-page.html">Доставка</a></li>
+              <li><a href="">Акции</a></li>
+              <li><a href="about-page.html">О нас</a></li>
+              <li><a href="contact-page.html">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="out-cover__footer container">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-popup" id="offer-popup" hidden>
+      <h2>offer-popup</h2>
+    </div>
+
+
+  </div>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/modules.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>

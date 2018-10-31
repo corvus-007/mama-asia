@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>Contact page</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+  <div class="site-wrapper">
+    <style>
+  .splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    background-color: #ffffff;
+    transition: 0.3s;
+  }
+
+  .splash-screen--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .sk-folding-cube {
+    margin: 20px auto;
+    width: 82px;
+    height: 82px;
+    position: relative;
+    transform: rotateZ(45deg);
+  }
+
+  .sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    transform: scale(1.1);
+  }
+  .sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffbc53;
+    animation: sk-foldCubeAngle 2.4s infinite linear both;
+  }
+  .sk-folding-cube .sk-cube2 {
+    transform: scale(1.1) rotateZ(90deg);
+  }
+  .sk-folding-cube .sk-cube3 {
+    transform: scale(1.1) rotateZ(180deg);
+  }
+  .sk-folding-cube .sk-cube4 {
+    transform: scale(1.1) rotateZ(270deg);
+  }
+  .sk-folding-cube .sk-cube2:before {
+    animation-delay: 0.3s;
+  }
+  .sk-folding-cube .sk-cube3:before {
+    animation-delay: 0.6s;
+  }
+  .sk-folding-cube .sk-cube4:before {
+    animation-delay: 0.9s;
+  }
+
+  @keyframes sk-foldCubeAngle {
+    0%, 10% {
+      transform: perspective(140px) rotateX(-180deg);
+      opacity: 0;
+    } 25%, 75% {
+      transform: perspective(140px) rotateX(0deg);
+      opacity: 1;
+    } 90%, 100% {
+      transform: perspective(140px) rotateY(180deg);
+      opacity: 0;
+    }
+  }
+</style>
+<div id="splash-screen" class="splash-screen">
+  <div class="splash-screen__item">
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="header-layout">
+      <div class="header-layout__top">
+        <div class="header-layout__top-inner container">
+          <div class="header-layout__logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+          </div>
+          <div class="header-layout__phones">
+            <p class="header-phones">
+              <a class="header-phones__item" href="tel:+74832305012"><span>+7 (4832)</span> <b>305-012</b></a>
+              <a class="header-phones__item" href="tel:+79308265806"><span>+7 (930)</span> <b>826-58-06</b></a>
+            </p>
+          </div>
+          <div class="header-layout__info">
+            <div class="header-info">
+              <p class="header-info__item header-info__orders">
+                <b>Прием заказов:</b> с 10:00 до 21:00
+              </p>
+              <p class="header-info__item header-info__delivery">
+                <b>Доставка:</b> с 11:00 до 21:45
+                <small class="header-info__note">Доставка бесплатно от 600руб.</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-layout__bottom">
+        <div class="header-layout__bottom-inner container">
+          <div class="header-layout__nav">
+            <nav class="main-nav">
+              <button class="main-nav__toggle out-cover-toggle" type="button" aria-label="Показать меню">
+                <span class="out-cover-toggle__line"></span>
+              </button>
+              <ul class="main-nav__list">
+                <li class="current-menu-item"><a href="menu-page.html">Меню</a></li>
+                <li><a href="delivery-page.html">Доставка</a></li>
+                <li><a href="">Акции</a></li>
+                <li><a href="about-page.html">О нас</a></li>
+                <li><a href="contact-page.html">Контакты</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-layout__actions">
+            <div class="header-actions">
+              <div class="header-actions__item">
+                <div class="header-search-box">
+                  <form action="" autocomplete="off" class="header-search-box__form">
+                    <input class="header-search-box__input input" type="search" name="q">
+                    <button class="header-search-box__submit" type="submit" aria-label="Искать">
+                      <svg class="header-search-box__submit-icon" width="16" height="16">
+                        <use xlink:href="images/symbols.svg#magnify"></use>
+                      </svg>
+                    </button>
+                  </form>
+                  <button class="header-actions__action header-search-box__toggle" type="button" aria-label="Показать форму поиска">
+                    <svg class="header-actions__icon header-search-box__toggle-icon" width="16" height="16">
+                      <use xlink:href="images/symbols.svg#magnify"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="header-actions__item">
+                <a class="header-actions__action header-cart" href="" aria-label="Перейти в корзину">
+                  <svg class="header-actions__icon header-cart__icon" width="16" height="16">
+                    <use xlink:href="images/symbols.svg#cart"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <main class="main-layout">
+      <article class="page-layout">
+        <div class="page-layout__banner">
+          <div class="page-layout__header">
+            <div class="container">
+              <h1 class="page-layout__title common-title">Контакты</h1>
+            </div>
+          </div>
+        </div>
+        <div class="page-layout__breadcrumbs breadcrumbs container">
+          <ul class="breadcrumbs__list">
+            <li><a href="index.html">Главная</a></li>
+            <li>Контакты</li>
+          </ul>
+        </div>
+        <div class="page-layout__main contact">
+          <div class="contact__map" id="contact-map"></div>
+          <div class="contact__main container">
+            <div class="contact__row">
+              <div class="contact__text textual">
+                <h2>Our Contact</h2>
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+              </div>
+            </div>
+
+            <div class="contact__row">
+              <div class="contact__info">
+                <ul class="contact-info">
+                  <li>
+                    <b>Адрес:</b>
+                    <span>г. Брянск, ул. Объездная, 30, ТРЦ «АэроПарк» 2&#8209;й этаж, зона ФудКорта</span>
+                  </li>
+                </ul>
+                <p>Индивидуальный предприниматель <b>Федяева Светлана Леонидовна</b></p>
+                <ul class="contact-info">
+                  <li>
+                    <b>ИНН:</b>
+                    <span>323400790960</span>
+                  </li>
+                  <li>
+                    <b>ОГРНИП:</b>
+                    <span>314325619600092 серия 32 № 00194796</span>
+                  </li>
+                </ul>
+                <img src="https://images.unsplash.com/photo-1464979681340-bdd28a61699e?ixlib=rb-0.3.5&s=d78d002012fea27c94feaaddc9343c32&auto=format&fit=crop&w=1350&q=80" alt="">
+              </div>
+
+              <div class="contact__form-wrapper">
+                <form class="contact-form" action="">
+                  <label class="field">
+                    <span class="field__label visually-hidden">Имя:</span>
+                    <span class="field__control">
+                      <input class="filed__input input" type="text" name="user_name" placeholder="Имя" required>
+                    </span>
+                  </label>
+                  <label class="field">
+                    <span class="field__label visually-hidden">E-mail:</span>
+                    <span class="field__control">
+                      <input class="filed__input input" type="email" name="user_email" placeholder="E-mail" required>
+                    </span>
+                  </label>
+                  <label class="field">
+                    <span class="field__label visually-hidden">Телефон:</span>
+                    <span class="field__control">
+                      <input class="filed__input input" type="tel" name="user_phone" placeholder="Телефон" required>
+                    </span>
+                  </label>
+                  <label class="field">
+                    <span class="field__label visually-hidden">Комментарий:</span>
+                    <span class="field__control">
+                      <textarea class="filed__input input" name="user_message" rows="4" placeholder="Комменатрий"></textarea>
+                    </span>
+                  </label>
+                  <div class="contact-form__submit-wrapper">
+                    <input class="button" type="submit" value="Отправить">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">Site footer</div>
+    </footer>
+
+    <div class="out-cover">
+      <div class="out-cover__inner">
+        <div class="out-cover__body">
+          <div class="out-cover__mobile-nav mobile-nav">
+            <ul class="mobile-nav__list">
+              <li class="current-menu-item"><a href="menu-page.html">Меню</a></li>
+              <li><a href="delivery-page.html">Доставка</a></li>
+              <li><a href="">Акции</a></li>
+              <li><a href="about-page.html">О нас</a></li>
+              <li><a href="contact-page.html">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="out-cover__footer container">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-popup" id="offer-popup" hidden>
+      <h2>offer-popup</h2>
+    </div>
+
+
+  </div>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/modules.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
