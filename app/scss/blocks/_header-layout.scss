@@ -1,0 +1,61 @@
+.header-layout {
+
+}
+
+.header-layout__top {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #ffffff;
+}
+
+.header-layout__top-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-layout__logo {
+  margin-right: $gutter * 2;
+  filter: invert(1);
+}
+
+.header-layout__phones {
+  margin-right: $gutter * 2;
+}
+
+.header-layout__info {
+  margin-left: auto;
+}
+
+.header-layout__bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: auto !important;
+  max-width: 100%;
+  z-index: 10;
+  background-color: rgba(#000000, 0.1);
+  backdrop-filter: blur(3px);
+
+  .header-layout--sticky & {
+    top: 0;
+    position: fixed;
+    animation: fadeIn $duration * 2;
+    background-color: rgba(#000000, 0.5);
+  }
+}
+
+.header-layout__bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

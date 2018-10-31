@@ -1,0 +1,41 @@
+.main-nav {
+
+}
+
+.main-nav__toggle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  @include mq-min(768px) {
+    display: none;
+  }
+}
+
+.main-nav__list {
+  @include clear-list();
+
+  display: flex;
+
+  & > li {
+
+  }
+
+  & > li > a {
+    display: block;
+    padding: 20px 15px;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: $duration;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(#000000, 0.1);
+    }
+  }
+
+  @include mq-max(767px) {
+    display: none;
+  }
+}

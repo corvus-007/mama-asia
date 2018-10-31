@@ -1,0 +1,27 @@
+.contact-info {
+  @include clear-list();
+
+  display: table;
+  margin-bottom: 20px;
+  font-size: 17px;
+  line-height: 1.2;
+
+  li {
+    display: table-row;
+  }
+
+  b {
+    display: table-cell;
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 10px;
+    width: 100px;
+    font-weight: 600;
+    white-space: nowrap;;
+  }
+
+  span {
+    display: table-cell;
+    padding: 5px;
+  }
+}

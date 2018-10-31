@@ -1,0 +1,7 @@
+.main-product-gallery {
+
+}
+
+.main-product-gallery__item {
+  @include make-fit-object(10, 8);
+}

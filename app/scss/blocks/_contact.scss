@@ -1,0 +1,53 @@
+.contact {
+
+}
+
+.contact__map {
+  height: 500px;
+}
+
+.contact__main {
+
+}
+
+.contact__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $gutter * 2;
+
+  &:nth-child {
+    margin-bottom: 0;
+  }
+}
+
+.contact__text {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  @include mq-min(992px) {
+    width: 50%;
+    padding-right: $gutter * 1.5;
+  }
+}
+
+.contact__info {
+  width: 100%;
+  margin-bottom: $gutter * 1.5;
+  box-sizing: border-box;
+
+  @include mq-min(992px) {
+    width: 50%;
+    padding-right: $gutter * 1.5;
+  }
+}
+
+.contact__form-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+
+  @include mq-min(992px) {
+    width: 50%;
+  }
+}
+

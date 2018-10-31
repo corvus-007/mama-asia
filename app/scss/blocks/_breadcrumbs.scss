@@ -1,0 +1,28 @@
+.breadcrumbs {
+
+}
+
+.breadcrumbs__list {
+  @include clear-list();
+
+  display: flex;
+
+  li {
+    font-weight: 500;
+    font-size: 15px;
+  }
+
+  li:not(:first-child) {
+    &::before {
+      content: "/\00a0";
+      padding-left: 10px;
+      padding-right: 10px;
+      color: #ccc;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $muted-color;
+  }
+}

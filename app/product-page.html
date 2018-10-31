@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>Product page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    @@include('blocks/header-layout.html')
+
+    <main class="main-layout">
+      <article class="page-layout">
+        <div class="page-layout__banner">
+          <div class="page-layout__header">
+            <div class="container">
+              <b class="page-layout__title common-title">Shop</b>
+            </div>
+          </div>
+        </div>
+        <div class="page-layout__breadcrumbs breadcrumbs container">
+          <ul class="breadcrumbs__list">
+            <li><a href="index.html">HomeOrganic</a></li>
+            <li><a href="">CompoundsOrganic</a></li>
+            <li>Cherries Rich Nutrients</li>
+          </ul>
+        </div>
+        <div class="page-layout__main product">
+          <div class="product__row container">
+            <div class="product__gallery">
+              <div class="product-gallery">
+                <div class="product-gallery__main main-product-gallery" data-main-product-gallery>
+                  <div class="main-product-gallery__item">
+                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c9443baefd581d4e532b6d4f1e7879be&auto=format&fit=crop&w=1350&q=80" alt="">
+                  </div>
+                  <div class="main-product-gallery__item">
+                    <img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a98ac47048f530b6d587279d52c13ab7&auto=format&fit=crop&w=1268&q=80" alt="">
+                  </div>
+                  <div class="main-product-gallery__item">
+                    <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-0.3.5&s=f8c8b3acb749c1e021c52b2094e0de09&auto=format&fit=crop&w=1285&q=80" alt="">
+                  </div>
+                  <div class="main-product-gallery__item">
+                    <img src="https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dd8da96be0724ab84e4147d428f6bba&auto=format&fit=crop&w=1338&q=80" alt="">
+                  </div>
+                </div>
+                <div class="product-gallery__nav nav-product-gallery" data-nav-product-gallery>
+                  <div class="nav-product-gallery__item">
+                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c9443baefd581d4e532b6d4f1e7879be&auto=format&fit=crop&w=1350&q=80" alt="">
+                  </div>
+                  <div class="nav-product-gallery__item">
+                    <img src="https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a98ac47048f530b6d587279d52c13ab7&auto=format&fit=crop&w=1268&q=80" alt="">
+                  </div>
+                  <div class="nav-product-gallery__item">
+                    <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-0.3.5&s=f8c8b3acb749c1e021c52b2094e0de09&auto=format&fit=crop&w=1285&q=80" alt="">
+                  </div>
+                  <div class="nav-product-gallery__item">
+                    <img src="https://images.unsplash.com/photo-1453831362806-3d5577f014a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9dd8da96be0724ab84e4147d428f6bba&auto=format&fit=crop&w=1338&q=80" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product__summary">
+              <div class="product-summary">
+                <div class="product-summary__content">
+                  <h1 class="product__title common-title">Organic Pear Origin Korea</h1>
+                  <p class="product__code">Sku: <span>SA1235</span></p>
+                  <div class="product__short-description">
+                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+                  </div>
+                  <div class="product__price product-price">
+                    <span class="product-price__amount">2 750</span>
+                    <span class="product-price__currency">руб.</span>
+                  </div>
+                </div>
+                <div class="product-summary__cart">
+                  <form action="" class="product-form-cart">
+                    <label for="" class="field">
+                      <span class="visually-hidden">Количество</span>
+                      <div class="field__control">
+                        <input class="field__input input" type="number" name="quantity" value="1" min="1" max="" step="1">
+                      </div>
+                    </label>
+                    <button class="button" type="submit" name="add-to-cart">Добавить В корзину</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="product__row container">
+            <div class="product-tabs common-tabs">
+              <ul class="common-tabs__menu">
+                <li class="common-tabs__item">
+                  <a href="#tab-1" class="common-tabs__link">Описание</a>
+                </li>
+              </ul>
+              <div class="common-tabs__pane" id="tab-1">
+                <section class="product__description textual">
+                  <h2 class="visually-hidden">Описание</h2>
+                  <p>Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla quis lorem ut libero malesuada feugiat. Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+                  <p>Nulla quis lorem ut libero malesuada feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+                </section>
+              </div>
+              <div class="common-tabs__pane" id="tab-2">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    @@include('blocks/main-footer.html')
+  </div>
+  @@include('blocks/site-scripts.html')
+</body>
+</html>

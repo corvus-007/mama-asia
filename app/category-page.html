@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>Category page</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+  <div class="site-wrapper">
+    @@include('blocks/header-layout.html')
+
+    <main class="main-layout">
+      <article class="page-layout">
+        <div class="page-layout__banner">
+          <div class="page-layout__header">
+            <div class="container">
+              <h1 class="page-layout__title common-title">Пицца</h1>
+            </div>
+          </div>
+        </div>
+        <div class="page-layout__breadcrumbs breadcrumbs container">
+          <ul class="breadcrumbs__list">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="menu-page.html">Меню</a></li>
+            <li>Пицца</li>
+          </ul>
+        </div>
+        <div class="page-layout__main">
+          <div class="container">
+            <ul class="products-list">
+              <li class="products-list__item">
+                <div class="product-card">
+                  <div class="product-card__frame">
+                    <div class="product-card__picture">
+                      <a href="product-page.html"><img src="https://images.unsplash.com/photo-1502550900787-e956c314a221?ixlib=rb-0.3.5&s=0a197384be71550477f4e3b56be3a82a&auto=format&fit=crop&w=634&q=80" alt="Driscoll’s Only The Finest Beries"></a>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <p class="product-card__category"><a href="">Fresh Fruit</a></p>
+                    <h3 class="product-card__title"><a href="product-page.html">Driscoll’s Only The Finest Beries</a></h3>
+                    <div class="product-card__price product-price">
+                      <span class="product-price__amount">1 780</span>
+                      <span class="product-price__currency">руб.</span>
+                    </div>
+                  </div>
+                  <div class="product-card__outside">
+                    <a class="product-card__add-to-cart button" href="">В корзину</a>
+                  </div>
+                </div>
+              </li>
+              <li class="products-list__item">
+                <div class="product-card">
+                  <div class="product-card__frame">
+                    <div class="product-card__picture">
+                      <a href="product-page.html"><img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?ixlib=rb-0.3.5&s=69b5522f91b4d4af9321cd59de193720&auto=format&fit=crop&w=1350&q=80" alt="Red Strawberry Organic Nutrition"></a>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <p class="product-card__category"><a href="">Dried Fruits</a></p>
+                    <h3 class="product-card__title"><a href="product-page.html">Red Strawberry Organic Nutrition</a></h3>
+                    <div class="product-card__price product-price">
+                      <span class="product-price__amount">920</span>
+                      <span class="product-price__currency">руб.</span>
+                    </div>
+                  </div>
+                  <div class="product-card__outside">
+                    <a class="product-card__add-to-cart button" href="">В корзину</a>
+                  </div>
+                </div>
+              </li>
+              <li class="products-list__item">
+                <div class="product-card">
+                  <div class="product-card__frame">
+                    <div class="product-card__picture">
+                      <a href="product-page.html"><img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c7af156881360cd678f19062bd9c1f8a&auto=format&fit=crop&w=634&q=80" alt="Essentials Helping You Prepare"></a>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <p class="product-card__category"><a href="">Dried Fruits</a></p>
+                    <h3 class="product-card__title"><a href="product-page.html">Essentials Helping You Prepare</a></h3>
+                    <div class="product-card__price product-price">
+                      <span class="product-price__amount">14 650</span>
+                      <span class="product-price__currency">руб.</span>
+                    </div>
+                  </div>
+                  <div class="product-card__outside">
+                    <a class="product-card__add-to-cart button" href="">В корзину</a>
+                  </div>
+                </div>
+              </li>
+              <li class="products-list__item">
+                <div class="product-card">
+                  <div class="product-card__frame">
+                    <div class="product-card__picture">
+                      <a href="product-page.html"><img src="https://images.unsplash.com/photo-1478144592103-25e218a04891?ixlib=rb-0.3.5&s=c4855b0647952038c11f3ec1dd74d8b4&auto=format&fit=crop&w=1268&q=80" alt="Carrot Organic Nutrition"></a>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <p class="product-card__category"><a href="">Fresh Fruit</a></p>
+                    <h3 class="product-card__title"><a href="product-page.html">Carrot Organic Nutrition</a></h3>
+                    <div class="product-card__price product-price">
+                      <span class="product-price__amount">2 449</span>
+                      <span class="product-price__currency">руб.</span>
+                    </div>
+                  </div>
+                  <div class="product-card__outside">
+                    <a class="product-card__add-to-cart button" href="">В корзину</a>
+                  </div>
+                </div>
+              </li>
+              <li class="products-list__item">
+                <div class="product-card">
+                  <div class="product-card__frame">
+                    <div class="product-card__picture">
+                      <a href="product-page.html"><img src="https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1f409ef1ee50c261019e377ca254867a&auto=format&fit=crop&w=1350&q=80" alt="Pomegranate Nutritional Organic"></a>
+                    </div>
+                  </div>
+                  <div class="product-card__body">
+                    <p class="product-card__category"><a href="">Dried Fruits</a></p>
+                    <h3 class="product-card__title"><a href="product-page.html">Pomegranate Nutritional Organic</a></h3>
+                    <div class="product-card__price product-price">
+                      <span class="product-price__amount">2 750</span>
+                      <span class="product-price__currency">руб.</span>
+                    </div>
+                  </div>
+                  <div class="product-card__outside">
+                    <a class="product-card__add-to-cart button" href="">В корзину</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    @@include('blocks/main-footer.html')
+  </div>
+  @@include('blocks/site-scripts.html')
+</body>
+</html>

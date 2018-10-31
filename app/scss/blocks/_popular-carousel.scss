@@ -1,0 +1,26 @@
+.popular-carousel {
+  margin-left: -$gutter / 2;
+  margin-right: -$gutter / 2;
+
+  .slick-track {
+    display: flex;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.popular-carousel__item {
+  display: flex !important;
+  height: auto;
+  flex-direction: column;
+  padding: 4px;
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+
+  @media (pointer: fine) {
+    padding-bottom: 100px;
+  }
+}
