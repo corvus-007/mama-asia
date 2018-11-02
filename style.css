@@ -1156,6 +1156,8 @@ body.compensate-for-scrollbar {
   background-color: #48466D;
   -webkit-box-shadow: 0 0px 20px rgba(76, 175, 80, 0.5);
           box-shadow: 0 0px 20px rgba(76, 175, 80, 0.5);
+  -webkit-box-shadow: 0 0px 20px rgba(72, 70, 109, 0.5);
+          box-shadow: 0 0px 20px rgba(72, 70, 109, 0.5);
 }
 
 .button:active {
@@ -1231,6 +1233,7 @@ body.compensate-for-scrollbar {
 
 .select {
   position: relative;
+  border-radius: 4px;
 }
 
 .select::before {
@@ -1261,12 +1264,12 @@ body.compensate-for-scrollbar {
           appearance: none;
   font: inherit;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 24px;
   resize: vertical;
-  background-color: #f5f5f5;
-  border: 1px solid #f5f5f5;
-  border-radius: 4px;
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: inherit;
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -1299,8 +1302,8 @@ body.compensate-for-scrollbar {
 }
 
 .field__label {
-  margin-bottom: 6px;
   margin-right: auto;
+  margin-bottom: 4px;
   font-weight: 600;
   font-size: 0.88889rem;
 }
@@ -1453,6 +1456,12 @@ span.wpcf7-not-valid-tip {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.breadcrumbs__list::-webkit-scrollbar {
+  display: none;
 }
 
 .breadcrumbs__list li {
@@ -1487,14 +1496,6 @@ span.wpcf7-not-valid-tip {
   border-bottom: 1px solid #f1f1f1;
 }
 
-@media (max-width: 767px) {
-  .common-tabs__menu {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-
 .common-tabs__item {
   margin-right: 30px;
 }
@@ -1504,7 +1505,7 @@ span.wpcf7-not-valid-tip {
   display: block;
   padding: 2px 0;
   font-weight: 600;
-  font-size: 0.88889rem;
+  font-size: 16px;
   line-height: 1.15;
   text-decoration: none;
   text-align: center;
@@ -1549,7 +1550,7 @@ span.wpcf7-not-valid-tip {
 
 @media (min-width: 1280px) {
   .common-tabs__link {
-    font-size: vh(18);
+    font-size: 18px;
   }
 }
 
@@ -1860,9 +1861,10 @@ tbody tr:hover td {
   display: block;
   padding: 4px;
   border: none;
+  color: #ffffff;
+  text-decoration: none;
   background-color: transparent;
   cursor: pointer;
-  color: #ffffff;
   -webkit-transition: 0.25s;
   transition: 0.25s;
   outline: none;
@@ -1946,6 +1948,49 @@ tbody tr:hover td {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.header-cart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-cart__frame {
+  position: relative;
+}
+
+.header-cart__tip {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  padding: 4px;
+  background-color: #4CAF50;
+  border-radius: 100px;
+}
+
+.header-cart__count {
+  display: block;
+  min-width: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.header-cart__total {
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+.header-cart__price-amount {
+  letter-spacing: -0.04em;
+}
+
+.header-cart__price-currency {
+  font-size: 14px;
 }
 
 .main-nav__toggle {
@@ -2093,7 +2138,7 @@ tbody tr:hover td {
 .page-layout__title {
   display: block;
   font-weight: 600;
-  font-size: 50px;
+  font-size: 60px;
   color: #ffffff;
 }
 
@@ -2122,8 +2167,12 @@ tbody tr:hover td {
 }
 
 .product-price {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 32px;
+}
+
+.product-price__amount {
+  letter-spacing: -0.04em;
 }
 
 .product-price__currency {
@@ -2210,6 +2259,10 @@ tbody tr:hover td {
   }
 }
 
+.product-card__picture a {
+  display: block;
+}
+
 .product-card__picture img {
   -webkit-transition: -webkit-transform 1.25s;
   transition: -webkit-transform 1.25s;
@@ -2220,8 +2273,8 @@ tbody tr:hover td {
 .product-card:hover .product-card__picture img {
   -webkit-transition-delay: 0.125s;
           transition-delay: 0.125s;
-  -webkit-transform: scale(1.1) rotate(-4deg);
-          transform: scale(1.1) rotate(-4deg);
+  -webkit-transform: scale(1.1) rotate(-3deg);
+          transform: scale(1.1) rotate(-3deg);
 }
 
 .product-card__body {
@@ -2350,9 +2403,6 @@ tbody tr:hover td {
 }
 
 .product__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   margin-bottom: 40px;
 }
 
@@ -2360,8 +2410,25 @@ tbody tr:hover td {
   margin-bottom: 0;
 }
 
+@media (min-width: 992px) {
+  .product__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .product__gallery {
   width: 100%;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .product__gallery {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (min-width: 992px) {
@@ -2389,13 +2456,13 @@ tbody tr:hover td {
 }
 
 .product__title {
-  margin-bottom: 10px;
-  font-size: 20px;
+  margin-bottom: 4px;
+  font-size: 22px;
   text-align: left;
 }
 
 .product__code {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .product__short-description {
@@ -2408,22 +2475,47 @@ tbody tr:hover td {
   font-size: 16px;
 }
 
-.product-summary {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+@media (min-width: 768px) {
+  .product-summary {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .product-summary__content {
   width: 100%;
-  margin-right: 30px;
+  margin-bottom: 30px;
   font-size: 15px;
 }
 
-.product-summary__cart {
-  width: 270px;
+@media (min-width: 768px) {
+  .product-summary__content {
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-summary__cart {
+    width: 270px;
+  }
+}
+
+.product-form-cart {
   padding: 20px;
   background-color: #f3f3f3;
+}
+
+.product-form-cart__submit-wrapper {
+  text-align: center;
+}
+
+.product-form-cart__select select {
+  border-radius: 100px;
+}
+
+.product-form-cart__input {
+  border-radius: 100px;
 }
 
 .product-gallery__main {
@@ -2493,7 +2585,7 @@ tbody tr:hover td {
   font-size: 15px;
 }
 
-.nav-product-gallery .slick-arrow:hover {
+.nav-product-gallery .slick-arrow:not(.slick-disabled):hover {
   color: #4CAF50;
   background-color: #ffffff;
 }
@@ -2518,6 +2610,11 @@ tbody tr:hover td {
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
   opacity: 1;
+}
+
+.nav-product-gallery:hover .slick-arrow.slick-disabled {
+  opacity: 0.25;
+  cursor: default;
 }
 
 .nav-product-gallery__item {

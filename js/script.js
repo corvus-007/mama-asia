@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // init controller
-  var SCROLL_TRIGGER_VALUE = 400;
   var controller = new ScrollMagic.Controller();
 
   // create a scene
@@ -58,7 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
     accessibility: false,
     arrows: false,
     infinite: false,
-    draggable: false
+    draggable: false,
+    swipe: false
   });
 
   $('[data-nav-product-gallery]').on('init', function (event, slick) {
