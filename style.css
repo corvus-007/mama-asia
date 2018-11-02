@@ -1737,8 +1737,6 @@ tbody tr:hover td {
   max-width: 100%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.1);
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
 }
 
 .header-layout--sticky .header-layout__bottom {
@@ -2004,7 +2002,7 @@ tbody tr:hover td {
   }
 }
 
-.main-nav__list {
+.menu {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -2013,27 +2011,98 @@ tbody tr:hover td {
   display: flex;
 }
 
-.main-nav__list > li > a {
+.menu a {
   display: block;
-  padding: 20px 15px;
-  font-weight: 600;
-  font-size: 20px;
   text-decoration: none;
-  color: #ffffff;
+  white-space: nowrap;
   -webkit-transition: 0.25s;
   transition: 0.25s;
 }
 
-.main-nav__list > li > a:hover, .main-nav__list > li > a:focus {
+.menu a:hover, .menu a:focus {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.menu > .menu-item:hover > a,
+.menu > .menu-item:focus-within > a {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu > .menu-item > a {
+  display: block;
+  padding: 20px 15px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+}
+
 @media (max-width: 767px) {
-  .main-nav__list {
+  .menu {
     display: none;
   }
 }
 
+.sub-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  min-width: 200px;
+  background-color: rgba(255, 255, 255, 0.95);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.sub-menu > .menu-item > a {
+  padding: 5px 15px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #232020;
+}
+
+.sub-menu > .menu-item > a:hover, .sub-menu > .menu-item > a:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.menu-item:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.menu-item:focus-within .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* .main-nav__list {
+  @include clear-list();
+
+  display: flex;
+
+  & > li {
+
+  }
+
+  & > li > a {
+    display: block;
+    padding: 20px 15px;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: $duration;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(#000000, 0.1);
+    }
+  }
+} */
 .textual {
   font-size: 1.11111rem;
   font-weight: 400;
@@ -2138,8 +2207,9 @@ tbody tr:hover td {
 .page-layout__title {
   display: block;
   font-weight: 600;
-  font-size: 60px;
+  font-size: 80px;
   color: #ffffff;
+  mix-blend-mode: soft-light;
 }
 
 .page-layout__breadcrumbs {
