@@ -1,7 +1,47 @@
 .header-cart {
+  display: flex;
+  align-items: center;
 
+}
+
+.header-cart__frame {
+  position: relative;
 }
 
 .header-cart__icon {
 
+}
+
+.header-cart__tip {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  padding: 4px;
+  background-color: $accent-color;
+  border-radius: 100px;
+}
+
+.header-cart__count {
+  display: block;
+  min-width: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.header-cart__total {
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+.header-cart__price {
+
+}
+
+.header-cart__price-amount {
+  letter-spacing: -0.04em;
+}
+
+.header-cart__price-currency {
+  font-size: 14px;
 }

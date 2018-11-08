@@ -7,3 +7,4 @@
 ////=require ../../node_modules/sticky-kit/dist/sticky-kit.min.js
 //=require ../../node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js
 //=require ../../node_modules/jquery-zoom/jquery.zoom.min.js
+//=require ../../node_modules/swiper/dist/js/swiper.min.js

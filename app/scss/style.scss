@@ -13,6 +13,7 @@
 // Vendors
 @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox";
 @import "../../node_modules/slick-carousel/slick/slick.scss";
+@import "../../node_modules/swiper/dist/css/swiper.min";
 
 // Blocks
 @import "blocks/button";
@@ -24,8 +25,10 @@
 @import "blocks/common-tabs";
 @import "blocks/table";
 @import "blocks/popup";
+@import "blocks/textual";
 @import "blocks/common-section";
 @import "blocks/common-title";
+@import "blocks/common-products-carousel";
 @import "blocks/out-cover-toggle";
 // @import "blocks/custom-ol";
 // @import "blocks/custom-ul";
@@ -36,14 +39,17 @@
 @import "blocks/header-search-box";
 @import "blocks/header-cart";
 @import "blocks/main-nav";
-@import "blocks/textual";
+@import "blocks/mobile-menu";
+@import "blocks/main-slider";
+@import "blocks/main-slide";
 @import "blocks/page-layout";
 @import "blocks/products-list";
 @import "blocks/product-price";
 @import "blocks/product-card";
-@import "blocks/popular-carousel";
+// @import "blocks/popular-carousel";
 @import "blocks/product";
 @import "blocks/product-summary";
+@import "blocks/product-form-cart";
 @import "blocks/product-gallery";
 @import "blocks/main-product-gallery";
 @import "blocks/nav-product-gallery";
@@ -55,6 +61,6 @@
 
 
 // @import "blocks/page";
-@import "blocks/main-footer";
+@import "blocks/footer-layout";
 @import "blocks/out-cover";
 @import "blocks/socials";

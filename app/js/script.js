@@ -9,16 +9,76 @@ document.addEventListener('DOMContentLoaded', function () {
 
   $('.common-tabs').tabslet();
 
-  $('[data-popular-carousel]').slick({
+  var mySwiper = new Swiper('[data-main-slider]', {
+    // Optional parameters
+    // direction: 'vertical',
+    autoplay: {
+      delay: 4000,
+      // disableOnInteraction: true
+    },
+    speed: 1000,
+    parallax: true,
+    loop: true,
+    effect: 'cube',
+    // grabCursor: true,
+    // coverflowEffect: {
+    //   rotate: 45,
+    //   slideShadows: false,
+    //   stretch: 25,
+    //   // modifier: 0.8
+    // },
+    cubeEffect: {
+      slideShadows: false,
+      shadow: false
+    },
+
+
+    // If we need pagination
+    pagination: {
+      // type: 'progressbar',
+      clickable: true,
+      el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
+
+    // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+  });
+
+  $('[common-products-carousel]').slick({
     accessibility: false,
     slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [{
-      breakpoint: 769,
+      breakpoint: 800,
       settings: {
         arrows: false,
         centerMode: true,
-        slidesToShow: 3
+        centerPadding: '28%',
+        slidesToShow: 1
+      }
+    }, {
+      breakpoint: 500,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '11%',
+        slidesToShow: 1
+      }
+    }, {
+      breakpoint: 350,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '8%',
+        slidesToShow: 1
       }
     }]
   });
@@ -37,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // init controller
-  var SCROLL_TRIGGER_VALUE = 400;
   var controller = new ScrollMagic.Controller();
 
   // create a scene
@@ -58,7 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
     accessibility: false,
     arrows: false,
     infinite: false,
-    draggable: false
+    draggable: false,
+    swipe: false
   });
 
   $('[data-nav-product-gallery]').on('init', function (event, slick) {

@@ -23,7 +23,7 @@
       font-size: 15px;
     }
 
-    &:hover {
+    &:not(.slick-disabled):hover {
       color: $accent-color;
       background-color: #ffffff;
     }
@@ -49,6 +49,11 @@
     .slick-arrow {
       transition-delay: 0s;
       opacity: 1;
+
+      &.slick-disabled {
+        opacity: 0.25;
+        cursor: default;
+      }
     }
   }
 }

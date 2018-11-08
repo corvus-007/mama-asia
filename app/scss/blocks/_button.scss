@@ -29,18 +29,39 @@
     color: #ffffff;
     background-color: lighten($accent-color, 6%);
     background-color: $primary-color;
-    box-shadow: 0 0px 20px rgba($accent-color, 0.5);
-
+    // box-shadow: 0 0px 20px rgba($accent-color, 0.5);
+    box-shadow: 0 0px 20px rgba($primary-color, 0.5);
   }
 
   &:active {
     color: #ffffff;
     background-color: darken($accent-color, 6%);
+    box-shadow: 0 0px 20px rgba($accent-color, 0.5);
   }
 
   &--fluid {
     width: 100%;
   }
+
+  &--outline {
+    background-color: transparent;
+    border-color: $accent-color;
+
+    &:hover,
+    &:focus {
+      border-color: $primary-color;
+    }
+
+    &:active {
+      border-color: darken($accent-color, 6%);
+    }
+  }
+
+  &--small {
+    padding: 5px 16px;
+    font-size: 12px;
+  }
+
 }
 
 .button__icon {

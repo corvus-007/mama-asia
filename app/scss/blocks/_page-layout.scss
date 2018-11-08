@@ -1,6 +1,4 @@
-.page-layout {
-
-}
+.page-layout {}
 
 .page-layout__banner {
   position: relative;
@@ -30,8 +28,9 @@
 .page-layout__title {
   display: block;
   font-weight: 600;
-  font-size: 50px;
+  font-size: 80px;
   color: #ffffff;
+  mix-blend-mode: soft-light;
 }
 
 .page-layout__breadcrumbs {
@@ -39,6 +38,4 @@
   margin-bottom: 30px;
 }
 
-.page-layout__main {
-
-}
+.page-layout__main {}

@@ -12,28 +12,71 @@
   <div class="site-wrapper">
     @@include('blocks/header-layout.html')
 
-    <main class="main-layout">
-      <style>
-        .main-slider {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 650px;
-          background-color: #4CAF50;
-          background: url("https://m-organic.kute-themes.com/wp-content/uploads/revslider/organic-otp-01/slide-033.jpg") no-repeat top/cover;
-        }
-      </style>
-      <div class="main-slider">
-        <h2>main-slider</h2>
+    <div class="swiper-container main-slider" data-main-slider>
+      <div class="main-slider__wrapper swiper-wrapper">
+        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(https://m-organic.kute-themes.com/wp-content/uploads/revslider/organic-otp-01/slide-011.jpg)">
+          <div class="main-slide__inner container">
+            <div class="main-slide__content">
+              <div class="main-slide__header">
+                <h2 class="main-slide__title common-title">Ням-ням. <br> Хочешь пиццу? 🍕</h2>
+                <p class="main-slide__subtitle">Купи 99 пицц и получи одну в подарок!</p>
+              </div>
+              <div class="main-slide__actions">
+                <a class="main-slide__button button button--small" href="">Да, хочу</a>
+                <a class="main-slide__button button button--outline button--small" href="">Нет, я худею</a>
+              </div>
+            </div>
+            <div class="main-slide__picture main-slide-animation-floating">
+              <img src="https://m-organic.kute-themes.com/wp-content/uploads/2018/05/img-1-2.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(https://m-organic.kute-themes.com/wp-content/uploads/revslider/organic-otp-01/slide-022.jpg)">
+          <div class="main-slide__inner container">
+            <div class="main-slide__content">
+              <div class="main-slide__header">
+                <h2 class="main-slide__title common-title">Slide 2</h2>
+                <p class="main-slide__subtitle">subtitle</p>
+              </div>
+              <div class="main-slide__actions">
+                <a class="main-slide__button button button--small" href="">Shop now</a>
+                <a class="main-slide__button button button--outline button--small" href="">View lookbook</a>
+              </div>
+            </div>
+            <div class="main-slide__picture main-slide-animation-tick">
+              <img src="https://m-organic.kute-themes.com/wp-content/uploads/2018/05/img-2-5.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(https://m-organic.kute-themes.com/wp-content/uploads/revslider/organic-otp-01/slide-033.jpg)">
+          <div class="main-slide__inner container">
+            <div class="main-slide__content">
+              <div class="main-slide__header">
+                <h2 class="main-slide__title common-title">Slide 3</h2>
+                <p class="main-slide__subtitle">subtitle</p>
+              </div>
+              <div class="main-slide__actions">
+                <a class="main-slide__button button button--small" href="">Shop now</a>
+                <a class="main-slide__button button button--outline button--small" href="">View lookbook</a>
+              </div>
+            </div>
+            <div class="main-slide__picture">
+              <!-- <img src="https://m-organic.kute-themes.com/wp-content/uploads/2018/05/img-1-2.png" alt=""> -->
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="swiper-pagination"></div>
+    </div>
 
+    <main class="main-layout">
       <section class="popular common-section">
         <div class="container">
           <header class="common-section__header">
             <h2 class="common-title">Хиты продаж</h2>
           </header>
-          <div class="popular-carousel" data-popular-carousel>
-            <div class="popular-carousel__item">
+          <div class="common-products-carousel" common-products-carousel>
+            <div class="common-products-carousel__item">
               <div class="product-card">
                 <div class="product-card__frame">
                   <div class="product-card__picture">
@@ -53,7 +96,7 @@
                 </div>
               </div>
             </div>
-            <div class="popular-carousel__item">
+            <div class="common-products-carousel__item">
               <div class="product-card">
                 <div class="product-card__frame">
                   <div class="product-card__picture">
@@ -73,7 +116,7 @@
                 </div>
               </div>
             </div>
-            <div class="popular-carousel__item">
+            <div class="common-products-carousel__item">
               <div class="product-card">
                 <div class="product-card__frame">
                   <div class="product-card__picture">
@@ -93,7 +136,7 @@
                 </div>
               </div>
             </div>
-            <div class="popular-carousel__item">
+            <div class="common-products-carousel__item">
               <div class="product-card">
                 <div class="product-card__frame">
                   <div class="product-card__picture">
@@ -113,7 +156,7 @@
                 </div>
               </div>
             </div>
-            <div class="popular-carousel__item">
+            <div class="common-products-carousel__item">
               <div class="product-card">
                 <div class="product-card__frame">
                   <div class="product-card__picture">
@@ -245,7 +288,7 @@
       </section>
     </main>
 
-    @@include('blocks/main-footer.html')
+    @@include('blocks/footer-layout.html')
   </div>
   @@include('blocks/site-scripts.html')
 </body>

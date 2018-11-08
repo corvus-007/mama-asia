@@ -3,16 +3,26 @@
 }
 
 .product__row {
-  display: flex;
   margin-bottom: 40px;
 
   &:last-child {
     margin-bottom: 0;
   }
+
+  @include mq-min(992px) {
+    display: flex;
+  }
 }
 
 .product__gallery {
   width: 100%;
+  margin-bottom: 40px;
+
+  @include mq-min(768px) {
+    width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   @include mq-min(992px) {
     width: 390px;
@@ -33,13 +43,13 @@
 }
 
 .product__title {
-  margin-bottom: 10px;
-  font-size: 20px;
+  margin-bottom: 4px;
+  font-size: 22px;
   text-align: left;
 }
 
 .product__code {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .product__short-description {

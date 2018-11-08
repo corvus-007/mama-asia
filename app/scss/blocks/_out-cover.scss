@@ -1,16 +1,18 @@
 .out-cover {
   position: fixed;
-  left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   z-index: 20;
+  max-width: 100%;
+  width: 320px;
+  min-width: 300px;
   height: 100%;
   padding: 20px;
-  padding-top: 85px;
-  transform: scale(1.2);
+  transform: translateX(100%);
   color: $base-color;
   background-color: #ffffff;
+  box-shadow: -5px 0 20px rgba(#000000, 0.5);
   transition: $duration * 2;
   pointer-events: none;
   box-sizing: border-box;
@@ -20,7 +22,7 @@
   visibility: hidden;
 
   &--opened {
-    transform: scale(1);
+    transform: translateX(0);
     pointer-events: auto;
     opacity: 1;
     visibility: visible;
@@ -45,4 +47,8 @@
   justify-content: center;
   flex-grow: 1;
   box-sizing: border-box;
+}
+
+.out-cover__mobile-nav {
+  overflow-y: auto;
 }

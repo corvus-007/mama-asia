@@ -6,6 +6,12 @@
   @include clear-list();
 
   display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   li {
     font-weight: 500;

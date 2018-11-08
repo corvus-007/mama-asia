@@ -15,14 +15,24 @@
   box-sizing: border-box;
   transition: $duration * 2;
 
-  &:hover,
+  &:hover {
+    border-color: darken($grey-230, 5%);
+    background-color: #ffffff;
+  }
+
   &:focus {
-    border-color: #e0e0e0;
-    background-color: #fff;
+    border-color: $grey-187;
+    background-color: #ffffff;
   }
 
   &::placeholder {
     color: $base-color;
     opacity: 0.5;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
   }
 }

@@ -1,16 +1,22 @@
 .product-summary {
-  display: flex;
+
+  @include mq-min(768px) {
+    display: flex;
+  }
 }
 
 .product-summary__content {
   width: 100%;
-  margin-right: $gutter;
+  margin-bottom: $gutter;
   font-size: 15px;
+
+  @include mq-min(768px) {
+    margin-right: $gutter;
+  }
 }
 
 .product-summary__cart {
-  width: 270px;
-  // flex-shrink: 0;
-  padding: 20px;
-  background-color: $grey-243;
+  @include mq-min(768px) {
+    width: 270px;
+  }
 }

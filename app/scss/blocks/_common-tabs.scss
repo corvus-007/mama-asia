@@ -9,10 +9,6 @@
   padding-left: 0;
   list-style: none;
   border-bottom: 1px solid $grey-241;
-
-  @include mq-max(767px) {
-    justify-content: center;
-  }
 }
 
 .common-tabs__item {
@@ -24,7 +20,7 @@
   display: block;
   padding: 2px 0;
   font-weight: 600;
-  font-size: rem(16);
+  font-size: 16px;
   line-height: 1.15;
   text-decoration: none;
   text-align: center;
@@ -60,7 +56,7 @@
   }
 
   @include mq-min(1280px) {
-    font-size: vh(18);
+    font-size: 18px;
   }
 }
 
