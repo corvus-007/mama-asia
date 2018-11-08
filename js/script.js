@@ -11,21 +11,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var mySwiper = new Swiper('[data-main-slider]', {
     // Optional parameters
-    direction: 'vertical',
+    // direction: 'vertical',
     autoplay: {
-      delay: 5000,
-      disableOnInteraction: true
+      delay: 4000,
+      // disableOnInteraction: true
     },
-    speed: 600,
+    speed: 1000,
     parallax: true,
     loop: true,
-    effect: 'coverflow',
-    grabCursor: true,
-    coverflowEffect: {
-      rotate: 45,
+    effect: 'cube',
+    // grabCursor: true,
+    // coverflowEffect: {
+    //   rotate: 45,
+    //   slideShadows: false,
+    //   stretch: 25,
+    //   // modifier: 0.8
+    // },
+    cubeEffect: {
       slideShadows: false,
-      stretch: 25,
-      // modifier: 0.8
+      shadow: false
     },
 
 
