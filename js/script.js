@@ -10,46 +10,23 @@ document.addEventListener('DOMContentLoaded', function () {
   $('.common-tabs').tabslet();
 
   var mySwiper = new Swiper('[data-main-slider]', {
-    // Optional parameters
     // direction: 'vertical',
-    autoplay: {
-      delay: 4000,
-      // disableOnInteraction: true
-    },
+    // autoplay: {
+    //   // delay: 4000,
+    //   // disableOnInteraction: true
+    // },
     speed: 1000,
     parallax: true,
     loop: true,
-    effect: 'cube',
-    // grabCursor: true,
-    // coverflowEffect: {
-    //   rotate: 45,
-    //   slideShadows: false,
-    //   stretch: 25,
-    //   // modifier: 0.8
-    // },
-    cubeEffect: {
+    effect: 'coverflow',
+    coverflowEffect: {
       slideShadows: false,
-      shadow: false
     },
-
-
-    // If we need pagination
     pagination: {
-      // type: 'progressbar',
       clickable: true,
       el: '.swiper-pagination',
     },
 
-    // Navigation arrows
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
-
-    // And if we need scrollbar
-    // scrollbar: {
-    //   el: '.swiper-scrollbar',
-    // },
   });
 
   $('[common-products-carousel]').slick({

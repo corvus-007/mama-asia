@@ -152,9 +152,6 @@ window.searchBox = (function () {
 
     var boundariesSearchBoxForm = getBoundariesForSearchForm();
 
-    searchBoxForm.style.width = boundariesSearchBoxForm.width + 'px';
-    searchBoxForm.style.right = boundariesSearchBoxForm.right + 'px';
-
     var onSearchBoxEscPress = function (event) {
       if (event.keyCode === window.util.KEYCODE_ESC) {
         hideSearchBarContent();
@@ -179,7 +176,14 @@ window.searchBox = (function () {
     });
   }
 
+  function setMetricsForSearchBoxForm() {
+    boundariesSearchBoxForm = getBoundariesForSearchForm();
+    searchBoxForm.style.width = boundariesSearchBoxForm.width + 'px';
+    searchBoxForm.style.left = boundariesSearchBoxForm.left + 'px';
+  }
+
   function showSearchBarContent() {
+    setMetricsForSearchBoxForm();
     searchBox.classList.remove('header-search-box--not-active');
     searchBoxToggler.classList.add('header-search-box__toggle--hidden');
     setTimeout(function () {
@@ -187,23 +191,24 @@ window.searchBox = (function () {
     }, 500);
     document.addEventListener('keydown', onSearchBoxEscPress);
     document.addEventListener('click', onSearchBarClickOut);
-  };
+  }
 
   function hideSearchBarContent() {
     searchBox.classList.add('header-search-box--not-active');
     searchBoxToggler.classList.remove('header-search-box__toggle--hidden');
     document.removeEventListener('keydown', onSearchBoxEscPress);
-  };
+  }
 
   function getBoundariesForSearchForm() {
+    var searchBoxFormOffsetParent = searchBoxForm.offsetParent;
     var headerNavRight = Math.ceil(headerNav.getBoundingClientRect().right) + 30;
     var headerActionsLeft = Math.ceil(headerActions.getBoundingClientRect().left) - 30;
     var width = headerActionsLeft - headerNavRight;
 
     return {
       width: width,
-      left: headerNavRight,
-      right: document.documentElement.clientWidth - headerActionsLeft,
+      left: headerNavRight - searchBoxFormOffsetParent.getBoundingClientRect().left,
+      right: document.documentElement.clientWidth - headerActionsLeft - searchBoxFormOffsetParent.getBoundingClientRect().right,
     };
   }
 
