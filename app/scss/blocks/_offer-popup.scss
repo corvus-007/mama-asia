@@ -1,0 +1,50 @@
+.offer-popup {
+  max-width: 550px;
+  overflow: initial;
+  border-radius: $border-radius;
+}
+
+.offer-popup__content {
+  position: relative;
+  z-index: 1;
+}
+
+.offer-popup__header {
+  margin-bottom: 40px;
+}
+
+.offer-popup__title {
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 46px;
+}
+
+.offer-popup__text {
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: $muted-color;
+}
+
+.offer-popup__form-wrapper {
+
+}
+
+.offer-popup__submit-wrapper {
+  text-align: center;
+}
+
+.offer-popup__decor-picture {
+  position: absolute;
+  right: -140px;
+  bottom: -50px;
+  width: 350px;
+  // pointer-events: none;
+
+  img {
+    display: block;
+  }
+}
