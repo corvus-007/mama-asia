@@ -7,18 +7,21 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 10px;
-    width: 12px;
-    height: 11px;
+    right: 18px;
+    width: 6px;
+    height: 6px;
     margin: auto;
-    background-color: rgba(49, 128, 35, 0.678);
-    transition: $duration;
+    border-left: 2px solid darken($grey-230, 5%);
+    border-bottom: 2px solid darken($grey-230, 5%);
+    transform: translateY(-2px) rotate(-45deg);
+    transition: $duration * 1.5;
     pointer-events: none;
   }
 
   &:focus-within {
     &::before {
-      opacity: 0;
+      transform: translateY(-1px) rotate(-45deg);
+      border-color: $grey-187;
     }
   }
 
