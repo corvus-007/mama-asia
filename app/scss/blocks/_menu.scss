@@ -4,7 +4,7 @@
   display: flex;
 
   a {
-    display: block;
+    display: flex;
     text-decoration: none;
     white-space: nowrap;
     transition: $duration;
@@ -15,33 +15,39 @@
     }
   }
 
-  & > .menu-item:hover > a {
-    background-color: rgba(#000000, 0.1);
+  & > .menu-item:hover {
+    & > a {
+      background-color: rgba(#000000, 0.1);
 
-    &::after {
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    & > .sub-menu {
+      transform: translateY(0);
       opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
   }
 
-  & > .menu-item:focus-within > a {
-    background-color: rgba(#000000, 0.1);
-  }
 
-  & > .menu-item:hover .sub-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
+  & > .menu-item:focus-within {
+    & > a {
+      background-color: rgba(#000000, 0.1);
+    }
 
-  & > .menu-item:focus-within .sub-menu {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+    & > .sub-menu {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
   }
 
   & > .menu-item > a {
     position: relative;
-    display: flex;
     align-items: center;
     padding: 20px 15px;
     font-weight: 600;
@@ -82,12 +88,43 @@
 
     position: absolute;
     min-width: 200px;
+    transform: translateY(4px);
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(#000000, 0.05);
     opacity: 0;
     visibility: hidden;
-    transition: $duration * 2;
+    transition: $duration * 1.5;
     pointer-events: none;
+
+    & > .menu-item:hover {
+      & > a {
+        background-color: rgba(#000000, 0.05);
+      }
+
+      & > .sub-menu-lvl2 {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    }
+
+    & > .menu-item:focus-within {
+      & > a {
+        background-color: rgba(#000000, 0.05);
+      }
+
+      & > .sub-menu-lvl2 {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    }
+
+    & > .menu-item {
+      position: relative;
+    }
 
     & > .menu-item > a {
       padding: 5px 15px;
@@ -97,6 +134,62 @@
 
       &:hover,
       &:focus {
+        background-color: rgba(#000000, 0.05);
+      }
+    }
+
+    & > .menu-item-has-children > a {
+      justify-content: space-between;
+      align-items: center;
+
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        margin-left: 6px;
+        transform: rotate(-45deg);
+        border: 2px solid;
+        border-top: none;
+        border-left: none;
+        box-sizing: border-box;
+        opacity: 0.75;
+        transition: $duration;
+      }
+    }
+
+    .current-menu-item > a {
+      color: $accent-color;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  .sub-menu-lvl2 {
+    @include clear-list();
+
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 200px;
+    transform: translateX(4px);
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(#000000, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transition: $duration * 1.5;
+    pointer-events: none;
+
+    & > .menu-item > a {
+      padding: 6px 15px;
+      font-weight: 600;
+      font-size: 15px;
+      color: $base-color;
+
+      &:hover,
+      &:focus {
+        color: $base-color;
         background-color: rgba(#000000, 0.05);
       }
     }

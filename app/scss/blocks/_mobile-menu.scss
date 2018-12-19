@@ -34,7 +34,7 @@
     margin: 0;
     padding: 4px;
     font-size: 0;
-    background-color: $grey-250;
+    background-color: rgba($base-color, 0.05);
     border: none;
     outline: none;
 
@@ -72,6 +72,20 @@
     padding-bottom: 5px;
     background-color: $grey-250;
 
+    .sub-menu-toggle {
+      width: 36px;
+      height: 36px;
+
+      &::before {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    & > .menu-item {
+      position: relative;
+    }
+
     & > .menu-item a {
       padding-left: 15px;
       padding-right: 1px;
@@ -80,6 +94,28 @@
   }
 
   .menu-item-has-children.opened > .sub-menu {
+    display: block;
+  }
+
+  .sub-menu-lvl2 {
+    @include clear-list();
+
+    display: none;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    background-color: $grey-241;
+    box-sizing: border-box;
+
+    & > .menu-item a {
+      padding-left: 15px;
+      padding-right: 1px;
+      font-size: 17px;
+    }
+  }
+
+  .menu-item-has-children.opened > .sub-menu-lvl2 {
     display: block;
   }
 }

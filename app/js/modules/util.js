@@ -36,6 +36,16 @@ window.util = (function () {
       document.body.removeChild(div);
 
       return scrollWidth;
+    },
+    sendAjax: function (url, data, successHandler, errorHandler) {
+      $.ajax({
+          url: url,
+          data: data,
+          async: true,
+          dataType: 'json'
+        })
+        .done(successHandler)
+        .fail(errorHandler);
     }
   }
 })();

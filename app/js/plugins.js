@@ -8,3 +8,5 @@
 //=require ../../node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js
 //=require ../../node_modules/jquery-zoom/jquery.zoom.min.js
 //=require ../../node_modules/swiper/dist/js/swiper.min.js
+//=require ../../node_modules/jquery-validation/dist/jquery.validate.min.js
+//=require ../../node_modules/jquery-validation/dist/localization/messages_ru.min.js

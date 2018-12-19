@@ -10,7 +10,7 @@ window.offerPopup = (function (window, $) {
       opts: {
         afterClose: function () {
           Cookies.set('offerPopup', 1, {
-            expires: 30
+            expires: 7
           });
         }
       }

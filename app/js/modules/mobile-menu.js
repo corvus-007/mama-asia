@@ -7,8 +7,10 @@ window.mobileMenu = (function (window, $) {
   }
 
   var subMenuList = mobileMenu.querySelectorAll('.sub-menu');
+  var subMenuLvl2List = mobileMenu.querySelectorAll('.sub-menu-lvl2');
 
   subMenuList.forEach(handleSubMenu);
+  subMenuLvl2List.forEach(handleSubMenu);
 
   mobileMenu.addEventListener('click', function (evt) {
     var target = evt.target;

@@ -11,20 +11,47 @@
 .header-layout__top-inner {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+
+  @include mq-min(667px) {
+    flex-direction: row;
+  }
 }
 
 .header-layout__logo {
-  margin-right: $gutter * 2;
-  filter: invert(1);
+  margin-bottom: 20px;
+
+  @include mq-min(667px) {
+    margin-right: $gutter;
+    margin-bottom: 0;
+  }
+
+  @include mq-min(1024px) {
+    margin-right: $gutter * 2;
+  }
 }
 
 .header-layout__phones {
-  margin-right: $gutter * 2;
+  margin-bottom: 20px;
+
+  @include mq-min(667px) {
+    margin-right: $gutter;
+    margin-bottom: 0;
+  }
+
+  @include mq-min(1024px) {
+    margin-right: $gutter * 2;
+  }
 }
 
 .header-layout__info {
-  margin-left: auto;
+  margin-bottom: 20px;
+
+  @include mq-min(667px) {
+    margin-left: auto;
+    margin-bottom: 0;
+  }
 }
 
 .header-layout__bottom {
@@ -34,27 +61,13 @@
   bottom: auto !important; // переопределяет свойство, которое задает плагин прилипания шапки
   z-index: 10;
   max-width: 100%;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(#000000, 0.1);
-    backdrop-filter: blur(4px);
-    pointer-events: none;
-  }
+  background-color: rgba(#000000, 0.2);
 
   .header-layout--sticky & {
     top: 0;
     position: fixed;
+    background-color: rgba(#000000, 0.6);
     animation: fadeIn $duration * 2;
-
-    &::before {
-      background-color: rgba(#000000, 0.5);
-    }
   }
 }
 

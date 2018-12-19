@@ -59,6 +59,10 @@
   }
 
   option {
-    font-weight: normal;
+    font-size: 18px;
+
+    &:checked {
+      background-color: $grey-250;
+    }
   }
 }

@@ -1,0 +1,101 @@
+.cart-product {
+  font-size: 18px;
+  line-height: 1.2;
+  vertical-align: middle;
+
+  @include mq-max(767px) {
+    font-size: 15px;
+  }
+}
+
+.cart-product__name {
+  display: inline-block;
+  padding: 5px;
+  padding-left: 0;
+  font-weight: 600;
+  text-decoration: none;
+  color: $base-color;
+  transition: $duration;
+}
+
+.cart-product__picture {
+  @include make-fit-object();
+
+  display: inline-block;
+  width: 92px;
+  margin-right: 5px;
+  vertical-align: middle;
+
+  @include mq-max(767px) {
+    display: none;
+  }
+}
+
+.cart-product__price {
+
+}
+
+.cart-product__price-amount {
+
+}
+
+.cart-product__price-currency {
+  font-size: 15px;
+
+  @include mq-max(666px) {
+    display: none;
+  }
+}
+
+.cart-product__quantity {
+
+}
+
+.cart-product__quantity-input {
+  max-width: 6ch;
+  text-align: center;
+  box-sizing: content-box;
+  border-radius: 100px;
+
+  @include mq-max(767px) {
+    max-width: 4ch;
+  }
+
+  @include mq-max(567px) {
+    max-width: 3ch;
+  }
+}
+
+.cart-product__cost {
+  font-weight: 600;
+}
+
+.cart-product__cost-amount {
+
+}
+
+.cart-product__cost-currency {
+  font-size: 15px;
+
+  @include mq-max(667px) {
+    display: none;
+  }
+}
+
+.cart-product__to-delete {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  vertical-align: middle;
+  background: url("images/icon-delete.svg") no-repeat center;
+  background-size: 16px;
+  border: none;
+  opacity: 0.2;
+  cursor: pointer;
+  transition: $duration;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}

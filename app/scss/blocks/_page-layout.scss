@@ -4,9 +4,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 360px;
+  height: 320px;
   color: #ffffff;
-  background: #ff9703 url("https://m-organic.kute-themes.com/wp-content/uploads/2018/05/banner-shop1-2.jpg") no-repeat center/cover;
+  background: #ff9703 url("images/banner-shop1-2.jpg") no-repeat center/cover;
 
   &::before {
     content: "";
@@ -17,6 +17,10 @@
     bottom: 0;
     background: linear-gradient(to top, rgba(#000000, 0.1), rgba(#000000, 0.05));
     pointer-events: none;
+  }
+
+  @include mq-min(768px) {
+    height: 360px;
   }
 }
 
@@ -30,7 +34,6 @@
   font-weight: 600;
   font-size: 80px;
   color: #ffffff;
-  mix-blend-mode: soft-light;
 }
 
 .page-layout__breadcrumbs {

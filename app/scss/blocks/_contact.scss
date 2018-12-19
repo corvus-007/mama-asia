@@ -15,7 +15,7 @@
   flex-wrap: wrap;
   margin-bottom: $gutter * 2;
 
-  &:nth-child {
+  &:last-child {
     margin-bottom: 0;
   }
 }
@@ -38,6 +38,7 @@
 
   @include mq-min(992px) {
     width: 50%;
+    margin-bottom: 0;
     padding-right: $gutter * 1.5;
   }
 }
@@ -50,4 +51,3 @@
     width: 50%;
   }
 }
-

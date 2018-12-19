@@ -8,6 +8,8 @@
 }
 
 .header-info__item {
+
+
   &::before {
     content: "";
     display: inline-block;
@@ -18,6 +20,14 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+  }
+
+  @include mq-min(667px) {
+    font-size: 15px;
+  }
+
+  @include mq-min(768px) {
+    font-size: 18px;
   }
 }
 
@@ -40,7 +50,7 @@
 
 .header-info__note {
   display: block;
-  font-size: 90%;
-  color: $muted-color;
   padding-left: 28px;
+  font-size: 80%;
+  color: $muted-color;
 }

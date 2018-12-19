@@ -6,8 +6,10 @@
   display: block;
   color: $base-color;
   text-decoration: none;
-  font-size: 22px;
-  line-height: 1.15;
+  font-size: 20px;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: $duration;
 
   span {
 
@@ -15,6 +17,13 @@
 
   b {
     font-weight: 600;
-    // font-size: 25px;
+  }
+
+  @include mq-min(667px) {
+    font-size: 18px;
+  }
+
+  @include mq-min(768px) {
+    font-size: 22px;
   }
 }

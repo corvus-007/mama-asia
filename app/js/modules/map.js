@@ -1,7 +1,8 @@
 window.map = (function (window, $) {
   'use strict';
 
-  var dirname = window.util.isDevMode() ? '' : '/wp-content/themes/greenwood/';
+  // var dirname = window.util.isDevMode() ? '' : '/wp-content/themes/mama-asia/';
+  var dirname = '';
 
   var mapElem = document.querySelector('#contact-map');
 

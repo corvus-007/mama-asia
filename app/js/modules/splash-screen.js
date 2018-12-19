@@ -8,11 +8,9 @@ window.splashScreen = (function (window, $) {
   }
 
   document.body.style.overflowY = 'hidden';
-  document.body.style.paddingRight = window.util.getScrollbarWidth() + 'px';
 
   window.addEventListener('load', function () {
     splashScreen.classList.add('splash-screen--hidden');
     document.body.style.overflowY = '';
-    document.body.style.paddingRight = '';
   });
 })(window, jQuery);
