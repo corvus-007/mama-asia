@@ -7,26 +7,57 @@ document.addEventListener('DOMContentLoaded', function () {
     "mask": "+7 (999) 999-99-99"
   });
 
+  jQuery.validator.addMethod('checkPhoneMask', function (value) {
+    return /\+7\ \(\d{3}\)\ \d{3}\-\d{2}\-\d{2}/g.test(value);
+  }, 'Заполните номер телефона');
+
+  $('#offer-form').validate({
+    submitHandler: function (form) {
+      var data = {
+        v: {
+          phone: $('[name="offer_phone"]', form).val()
+        }
+      };
+
+      window.util.sendAjax('/index.php?mode=ajax&f=offer', data, function (data) {
+        if (data.status == 2) {
+          alert('Код купона отправлен на указанный номер телефона. Получайте "плюшки" первым ;-)');
+          $.cookie('offerPopup', 1, {
+            expires: 30,
+            path: '/'
+          });
+          window.location.href = '/';
+        } else {
+          alert('Произошла ошибка! Обновите страницу и попробуйте снова!');
+        }
+      }, function () {
+        alert('Произошла ошибка! Обновите страницу и попробуйте снова!');
+      });
+    },
+    rules: {
+      'offer_phone': {
+        checkPhoneMask: true
+      }
+    }
+  });
+
   $('.common-tabs').tabslet();
 
   var mySwiper = new Swiper('[data-main-slider]', {
-    // direction: 'vertical',
-    // autoplay: {
-    //   // delay: 4000,
-    //   // disableOnInteraction: true
-    // },
+    autoplay: {
+      delay: 5000
+    },
     speed: 1000,
     parallax: true,
     loop: true,
     effect: 'coverflow',
     coverflowEffect: {
-      slideShadows: false,
+      slideShadows: false
     },
     pagination: {
       clickable: true,
-      el: '.swiper-pagination',
-    },
-
+      el: '.swiper-pagination'
+    }
   });
 
   $('[common-products-carousel]').slick({
@@ -61,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-  var SCROLL_TRIGGER_VALUE = 400;
+  var SCROLL_TRIGGER_VALUE = 220;
 
   var header = document.querySelector('.header-layout');
 
@@ -120,5 +151,4 @@ document.addEventListener('DOMContentLoaded', function () {
   $('.main-product-gallery__item').zoom({
     magnify: 0.65
   });
-
 });

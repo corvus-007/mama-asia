@@ -11,100 +11,44 @@
 <body>
   <div class="site-wrapper">
     <style>
-  .splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100%;
-    background-color: #ffffff;
-    transition: 0.3s;
-  }
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+  background-color: #ffffff;
+  transition: 0.3s;
+}
 
-  .splash-screen--hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-
-  .sk-folding-cube {
-    margin: 20px auto;
-    width: 82px;
-    height: 82px;
-    position: relative;
-    transform: rotateZ(45deg);
-  }
-
-  .sk-folding-cube .sk-cube {
-    float: left;
-    width: 50%;
-    height: 50%;
-    position: relative;
-    transform: scale(1.1);
-  }
-  .sk-folding-cube .sk-cube:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #4CAF50;
-    animation: sk-foldCubeAngle 2.4s infinite linear both;
-  }
-  .sk-folding-cube .sk-cube2 {
-    transform: scale(1.1) rotateZ(90deg);
-  }
-  .sk-folding-cube .sk-cube3 {
-    transform: scale(1.1) rotateZ(180deg);
-  }
-  .sk-folding-cube .sk-cube4 {
-    transform: scale(1.1) rotateZ(270deg);
-  }
-  .sk-folding-cube .sk-cube2:before {
-    animation-delay: 0.3s;
-  }
-  .sk-folding-cube .sk-cube3:before {
-    animation-delay: 0.6s;
-  }
-  .sk-folding-cube .sk-cube4:before {
-    animation-delay: 0.9s;
-  }
-
-  @keyframes sk-foldCubeAngle {
-    0%, 10% {
-      transform: perspective(140px) rotateX(-180deg);
-      opacity: 0;
-    } 25%, 75% {
-      transform: perspective(140px) rotateX(0deg);
-      opacity: 1;
-    } 90%, 100% {
-      transform: perspective(140px) rotateY(180deg);
-      opacity: 0;
-    }
-  }
+.splash-screen--hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 </style>
+
 <div id="splash-screen" class="splash-screen">
   <div class="splash-screen__item">
-    <div class="sk-folding-cube">
-      <div class="sk-cube1 sk-cube"></div>
-      <div class="sk-cube2 sk-cube"></div>
-      <div class="sk-cube4 sk-cube"></div>
-      <div class="sk-cube3 sk-cube"></div>
-    </div>
+    <canvas id="pizza"></canvas>
   </div>
 </div>
+<script>
+"use strict";(function(){function a(h,j){if(!(h instanceof j))throw new TypeError("Cannot call a class as a function")}function b(h,j,k,l,m,n){var o=m*k*Math.cos(c(l*n)-0.2),p=m*k*Math.sin(c(l*n)-0.2),q=m*k*Math.cos(j+0.2),r=m*k*Math.sin(j+0.2),s=m*Math.cos(j),t=m*Math.sin(j),u=Math.sqrt((o-s)*(o-s)+(p-t)*(p-t));h.beginPath(),h.lineCap="round";var v=e(u,15,70,1.2,0.2),w=o+(q-o)*v,z=p+(r-p)*v;h.moveTo(o,p),h.lineTo(w,z),w=q+(o-q)*v,z=r+(p-r)*v,h.moveTo(q,r),h.lineTo(w,z),h.lineWidth=e(u,0,100,20,2),h.stroke()}var c=function(j){return j*Math.PI/180},e=function(j,k,l,m,n){return m+(j-k)*(n-m)/(l-k)},f=function(){function h(j){a(this,h),this.canvas=document.getElementById(j),this.ctx=this.canvas.getContext("2d"),this.sliceCount=6,this.sliceSize=80,this.width=this.height=this.canvas.height=this.canvas.width=2*this.sliceSize+50,this.center=0|this.height/2,this.sliceDegree=360/this.sliceCount,this.sliceRadians=c(this.sliceDegree),this.progress=0,this.cooldown=10}return h.prototype.update=function(){var k=this.ctx;k.clearRect(0,0,this.width,this.height),0>--this.cooldown&&(this.progress+=0.01*this.sliceRadians+0.07*this.progress),k.save(),k.translate(this.center,this.center);for(var m,l=this.sliceCount-1;0<l;l--){if(m=void 0,l===this.sliceCount-1){var n=this.sliceCount-1;m=this.sliceRadians*l+this.progress,k.strokeStyle="#FBC02D",b(k,m,0.9,n,this.sliceSize,this.sliceDegree),b(k,m,0.6,n,this.sliceSize,this.sliceDegree),b(k,m,0.5,n,this.sliceSize,this.sliceDegree),b(k,m,0.3,n,this.sliceSize,this.sliceDegree)}else m=this.sliceRadians*l;k.beginPath(),k.lineCap="butt",k.lineWidth=11,k.arc(0,0,this.sliceSize,m,m+this.sliceRadians),k.strokeStyle="#F57F17",k.stroke();var o=this.sliceSize*Math.cos(m),p=this.sliceSize*Math.sin(m),q=this.sliceSize*Math.cos(m+this.sliceRadians),r=this.sliceSize*Math.sin(m+this.sliceRadians);k.fillStyle="#FBC02D",k.beginPath(),k.moveTo(0,0),k.lineTo(o,p),k.arc(0,0,this.sliceSize,m,m+this.sliceRadians),k.lineTo(0,0),k.closePath(),k.fill(),k.lineWidth=0.3,k.stroke();var t=0.65*this.sliceSize*Math.cos(m+this.sliceRadians/2),u=0.65*this.sliceSize*Math.sin(m+this.sliceRadians/2);k.beginPath(),k.arc(t,u,this.sliceDegree/6,0,2*Math.PI),k.fillStyle="#D84315",k.fill()}k.restore(),this.progress>this.sliceRadians&&(k.translate(this.center,this.center),k.rotate(-this.sliceDegree*Math.PI/180),k.translate(-this.center,-this.center),this.progress=0,this.cooldown=20)},h}(),g=new f("pizza");(function h(){requestAnimationFrame(h),g.update()})()})();
+</script>
 
 
     <div class="header-layout">
       <div class="header-layout__top">
         <div class="header-layout__top-inner container">
           <div class="header-layout__logo">
-            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+            <a href="index.html">
+              <img src="images/logo.svg" width="120" alt="Логотип компании «Мама Азия»">
+            </a>
           </div>
           <div class="header-layout__phones">
             <p class="header-phones">
@@ -119,7 +63,7 @@
               </p>
               <p class="header-info__item header-info__delivery">
                 <b>Доставка:</b> с 11:00 до 21:45
-                <small class="header-info__note">Доставка бесплатно от 600руб.</small>
+                <small class="header-info__note">Доставка бесплатно от 600 руб.</small>
               </p>
             </div>
           </div>
@@ -134,18 +78,27 @@
                 <span class="out-cover-toggle__line"></span>
               </button>
               <ul id="menu-main-navigation" class="menu">
-                <li class="menu-item menu-item-has-children current-menu-item"><a href="menu-page.html">Меню</a>
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="product-page.html">Пицца</a></li>
-                  <li class="menu-item"><a href="#">Сеты</a></li>
-                  <li class="menu-item"><a href="#">Роллы</a></li>
-                  <li class="menu-item current-menu-item"><a href="#">WOK Лапша / Рис</a></li>
-                  <li class="menu-item"><a href="#">Конструктор WOK</a></li>
-                  <li class="menu-item"><a href="#">Супы / Салаты</a></li>
-                  <li class="menu-item"><a href="#">Соуса / Допы</a></li>
-                  <li class="menu-item"><a href="#">Напитки</a></li>
-                  <li class="menu-item"><a href="#">Десерты</a></li>
-                </ul>
+                <li class="menu-item menu-item-has-children current-menu-item">
+                  <a href="">Меню</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item"><a href="category-page.html">Пицца</a></li>
+                    <li class="menu-item"><a href="#">Сеты</a></li>
+                    <li class="menu-item menu-item-has-children">
+                      <a href="#">Роллы</a>
+                      <ul class="sub-menu-lvl2">
+                        <li class="menu-item"><a href="">Классические</a></li>
+                        <li class="menu-item"><a href="">Авторские</a></li>
+                        <li class="menu-item"><a href="">Запеченные</a></li>
+                        <li class="menu-item"><a href="">Теплые</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item current-menu-item"><a href="#">WOK Лапша / Рис</a></li>
+                    <li class="menu-item"><a href="wok-designer-page.html">Конструктор WOK</a></li>
+                    <li class="menu-item"><a href="#">Супы / Салаты</a></li>
+                    <li class="menu-item"><a href="#">Соуса / Допы</a></li>
+                    <li class="menu-item"><a href="#">Напитки</a></li>
+                    <li class="menu-item"><a href="#">Десерты</a></li>
+                  </ul>
                 </li>
                 <li class="menu-item"><a href="delivery-page.html">Доставка</a></li>
                 <li class="menu-item"><a href="#">Акции</a></li>
@@ -200,59 +153,59 @@
 
     <div class="swiper-container main-slider" data-main-slider>
       <div class="main-slider__wrapper swiper-wrapper">
-        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(https://m-organic.kute-themes.com/wp-content/uploads/revslider/organic-otp-01/slide-011.jpg)">
+        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(images/main-slider/slide-011.jpg)">
           <div class="main-slide__inner container">
             <div class="main-slide__content">
               <div class="main-slide__header">
-                <h2 class="main-slide__title common-title">Ням-ням. <br> Хочешь пиццу? 🍕</h2>
-                <p class="main-slide__subtitle">Купи 99 пицц и получи одну в подарок!</p>
+                <h2 class="main-slide__title common-title" data-swiper-parallax-x="-50%">Ням-ням. <br> Хочешь пиццу? 🍕</h2>
+                <p class="main-slide__subtitle" data-swiper-parallax-x="-25%">Купи 99 пицц и получи одну в подарок!</p>
               </div>
-              <div class="main-slide__actions">
+              <div class="main-slide__actions" data-swiper-parallax-y="-50" data-swiper-parallax-duration="1000">
                 <a class="main-slide__button button button--small" href="">Да, хочу</a>
                 <a class="main-slide__button button button--outline button--small" href="">Нет, я худею</a>
               </div>
             </div>
             <div class="main-slide__picture main-slide-animation-floating">
-              <img src="https://m-organic.kute-themes.com/wp-content/uploads/2018/05/img-1-2.png" alt="">
+              <img src="images/main-slider/img-1-2.png" alt="">
             </div>
           </div>
         </div>
-        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(https://m-organic.kute-themes.com/wp-content/uploads/revslider/organic-otp-01/slide-022.jpg)">
+        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(images/main-slider/slide-022.jpg)">
           <div class="main-slide__inner container">
             <div class="main-slide__content">
               <div class="main-slide__header">
-                <h2 class="main-slide__title common-title">Slide 2</h2>
-                <p class="main-slide__subtitle">subtitle</p>
+                <h2 class="main-slide__title common-title" data-swiper-parallax-x="-50%">Slide 2</h2>
+                <p class="main-slide__subtitle" data-swiper-parallax-x="-25%">subtitle</p>
               </div>
-              <div class="main-slide__actions">
+              <div class="main-slide__actions" data-swiper-parallax-y="-50" data-swiper-parallax-duration="1000">
                 <a class="main-slide__button button button--small" href="">Shop now</a>
                 <a class="main-slide__button button button--outline button--small" href="">View lookbook</a>
               </div>
             </div>
             <div class="main-slide__picture main-slide-animation-tick">
-              <img src="https://m-organic.kute-themes.com/wp-content/uploads/2018/05/img-2-5.png" alt="">
+              <img src="images/main-slider/img-2-5.png" alt="">
             </div>
           </div>
         </div>
-        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(https://m-organic.kute-themes.com/wp-content/uploads/revslider/organic-otp-01/slide-033.jpg)">
+        <div class="main-slider__item main-slide swiper-slide" style="background-image: url(images/main-slider/slide-033.jpg)">
           <div class="main-slide__inner container">
             <div class="main-slide__content">
               <div class="main-slide__header">
-                <h2 class="main-slide__title common-title">Slide 3</h2>
-                <p class="main-slide__subtitle">subtitle</p>
+                <h2 class="main-slide__title common-title" data-swiper-parallax-x="-50%">Slide 3</h2>
+                <p class="main-slide__subtitle" data-swiper-parallax-x="-25%">subtitle</p>
               </div>
-              <div class="main-slide__actions">
+              <div class="main-slide__actions" data-swiper-parallax-y="-50" data-swiper-parallax-duration="1000">
                 <a class="main-slide__button button button--small" href="">Shop now</a>
                 <a class="main-slide__button button button--outline button--small" href="">View lookbook</a>
               </div>
             </div>
             <div class="main-slide__picture">
-              <!-- <img src="https://m-organic.kute-themes.com/wp-content/uploads/2018/05/img-1-2.png" alt=""> -->
+              <!-- <img src="images/main-slider/img-1-2.png" alt=""> -->
             </div>
           </div>
         </div>
       </div>
-      <div class="swiper-pagination"></div>
+      <div class="main-slider__pagination swiper-pagination"></div>
     </div>
 
     <main class="main-layout">
@@ -366,6 +319,124 @@
         </div>
       </section>
 
+      <section class="common-section catalog">
+        <div class="container">
+          <header class="common-section__header">
+            <h2 class="common-title">Меню</h2>
+          </header>
+          <ul class="catalog__list catalog-list">
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=efe01df2ebde79714be88d560479c9c7&auto=format&fit=crop&w=1350&q=80" alt="Пицца">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">Пицца</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1537280589715-826ccc7979c9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bdc16e9a59f4a8b4cd76c53dcd13350c&auto=format&fit=crop&w=1350&q=80" alt="Сеты">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">Сеты</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1534817557314-c781397d0b87?ixlib=rb-0.3.5&s=56fc284ccfcfad660520e4d5c312af0a&auto=format&fit=crop&w=1350&q=80" alt="Роллы">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">Роллы</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1513613593045-5f00c10fb8d6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=297206196d49a9977d38b253acb1e18c&auto=format&fit=crop&w=708&q=80" alt="WOK Лапша / Рис">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">WOK Лапша / Рис</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1464500542410-1396074bf230?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4f9df220f626c3c10f0ed8389c180c02&auto=format&fit=crop&w=1482&q=80" alt="Конструктор WOK">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">Конструктор WOK</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4c158f22af1fe9c21fbb0effd2d30d&auto=format&fit=crop&w=1350&q=80" alt="Супы / Салаты">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">Супы / Салаты</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1499126167718-c87f5c1387e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8dd5e1436f7433dd9d1bf831725391c1&auto=format&fit=crop&w=1489&q=80" alt="Соуса / Допы">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">Соуса / Допы</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1457518919282-b199744eefd6?ixlib=rb-0.3.5&s=e2434e3ded24b52247429f3724facc95&auto=format&fit=crop&w=1352&q=80" alt="Напитки">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">Напитки</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="catalog-list__item">
+              <div class="catalog-card">
+                <a class="catalog-card__wraplink" href="category-page.html">
+                  <div class="catalog-card__picture">
+                    <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=07df4ad552d3627b7cbc7836321d9a03&auto=format&fit=crop&w=1350&q=80" alt="Десерты">
+                  </div>
+                  <div class="catalog-card__content">
+                    <h2 class="catalog-card__title">Десерты</h2>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <section class="common-section">
         <div class="container">
           <ul class="products-list">
@@ -475,14 +546,28 @@
     </main>
 
     <footer class="footer-layout">
-      <div class="footer-layout__inner container">
-        <div class="footer-layout__column">
-          <p class="footer-layout__copy">
-            <img src="images/logo.png" style="filter: invert(1);" alt="">
-          </p>
-        </div>
-        <div class="footer-layout__column">
-
+      <div class="footer-layout__top">
+        <div class="footer-layout__row container">
+          <div class="footer-layout__column">
+            <p class="footer-layout__logo">
+              <img src="images/logo.svg" width="100" alt="Логотип «Мама Азия»">
+            </p>
+            <p class="footer-layout__copy">Copyright © 2018 Organic . All rights reserved</p>
+          </div>
+          <div class="footer-layout__column">
+            <p class="footer-layout__address">
+              Ул. Объездная, 30, ТРЦ «АэроПарк» 2‑й этаж, зона ФудКорта
+            </p>
+          </div>
+          <div class="footer-layout__column">
+            <p class="footer-layout__dev">
+              <img class="footer-layout__dev-logo" src="images/promo-marketing-logo.png" srcset="images/promo-marketing-logo@2x.png 2x" style="filter: invert(0.75);" alt="Логотип компании АМК «Промо-Маркетинг»" width="26">
+              <span class="footer-layout__dev-text">
+                Проект разработан<br>
+                в <a href="http://ma-promomarketing.ru/" target="_blank">АМК «Промо-Маркетинг»</a>
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
@@ -498,7 +583,15 @@
                 <ul class="sub-menu">
                   <li class="menu-item"><a href="product-page.html">Пицца</a></li>
                   <li class="menu-item"><a href="#">Сеты</a></li>
-                  <li class="menu-item"><a href="#">Роллы</a></li>
+                  <li class="menu-item menu-item-has-children">
+                    <a href="#">Роллы</a>
+                    <ul class="sub-menu-lvl2">
+                      <li class="menu-item"><a href="">Классические</a></li>
+                      <li class="menu-item"><a href="">Авторские</a></li>
+                      <li class="menu-item"><a href="">Запеченные</a></li>
+                      <li class="menu-item"><a href="">Теплые</a></li>
+                    </ul>
+                  </li>
                   <li class="menu-item"><a href="#">WOK Лапша / Рис</a></li>
                   <li class="menu-item current-menu-item"><a href="#">Конструктор WOK</a></li>
                   <li class="menu-item"><a href="#">Супы / Салаты</a></li>
@@ -514,22 +607,44 @@
             </ul>
           </div>
         </div>
-        <div class="out-cover__footer container">
-
-        </div>
+        <div class="out-cover__footer container"></div>
       </div>
     </div>
 
     <div class="offer-popup" id="offer-popup" hidden>
-      <h2>offer-popup</h2>
+      <div class="offer-popup__content">
+        <div class="offer-popup__header">
+          <h2 class="offer-popup__title common-title">Хочу 25% скидку</h2>
+          <p class="offer-popup__text">Будь первым, чтобы узнать о наших спец. предложениях и получить 25% на перую покупку!</p>
+        </div>
+        <div class="offer-popup__form-wrapper">
+          <form id="offer-form" action="">
+            <label class="field">
+              <span class="field__label visually-hidden">Телефон:</span>
+              <span class="field__control">
+                <input class="input" type="tel" name="offer_phone" placeholder="+7 (910) 876-54-32" required>
+              </span>
+            </label>
+            <div class="offer-popup__submit-wrapper">
+              <input class="button" type="submit" value="Получить купон">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="offer-popup__decor-picture" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fde969420cb3cea0ec5740cfbd521c93&auto=format&fit=crop&w=1350&q=80" alt="">
+      </div>
     </div>
 
 
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/plugins.js"></script>
+  <script src="js/jquery.cookie.js"></script>
   <script src="js/modules.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/script_site.js"></script>
 
 </body>
 </html>

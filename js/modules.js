@@ -36,6 +36,16 @@ window.util = (function () {
       document.body.removeChild(div);
 
       return scrollWidth;
+    },
+    sendAjax: function (url, data, successHandler, errorHandler) {
+      $.ajax({
+          url: url,
+          data: data,
+          async: true,
+          dataType: 'json'
+        })
+        .done(successHandler)
+        .fail(errorHandler);
     }
   }
 })();
@@ -50,12 +60,10 @@ window.splashScreen = (function (window, $) {
   }
 
   document.body.style.overflowY = 'hidden';
-  document.body.style.paddingRight = window.util.getScrollbarWidth() + 'px';
 
   window.addEventListener('load', function () {
     splashScreen.classList.add('splash-screen--hidden');
     document.body.style.overflowY = '';
-    document.body.style.paddingRight = '';
   });
 })(window, jQuery);
 
@@ -68,8 +76,10 @@ window.mobileMenu = (function (window, $) {
   }
 
   var subMenuList = mobileMenu.querySelectorAll('.sub-menu');
+  var subMenuLvl2List = mobileMenu.querySelectorAll('.sub-menu-lvl2');
 
   subMenuList.forEach(handleSubMenu);
+  subMenuLvl2List.forEach(handleSubMenu);
 
   mobileMenu.addEventListener('click', function (evt) {
     var target = evt.target;
@@ -126,7 +136,7 @@ window.offerPopup = (function (window, $) {
       opts: {
         afterClose: function () {
           Cookies.set('offerPopup', 1, {
-            expires: 30
+            expires: 7
           });
         }
       }
@@ -223,7 +233,8 @@ window.searchBox = (function () {
 window.map = (function (window, $) {
   'use strict';
 
-  var dirname = window.util.isDevMode() ? '' : '/wp-content/themes/greenwood/';
+  // var dirname = window.util.isDevMode() ? '' : '/wp-content/themes/mama-asia/';
+  var dirname = '';
 
   var mapElem = document.querySelector('#contact-map');
 
