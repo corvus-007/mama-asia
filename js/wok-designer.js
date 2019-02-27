@@ -307,11 +307,24 @@ const app = new Vue({
     },
     totalPrice() {
       return this.selectedNoodlesCost + this.totalPriceSouses + this.totalPriceToppings;
+    },
+    wokObject() {
+      return {
+        noodle: {
+          components: {
+            base: this.selectedBaseComponentObj,
+            filler: this.selectedFillerComponentObj
+          },
+          count: this.selectedNoodlesCount
+        },
+        souses: this.selectedSouses,
+        toppings: this.selectedToppings
+      }
     }
   },
   methods: {
     addToOrderHandler() {
-      alert(`Отправляем данные`);
+      console.log(JSON.stringify(this.wokObject, '', 2));
     }
   }
 });
