@@ -2026,7 +2026,7 @@ label.error {
   display: -ms-inline-flexbox;
   display: inline-flex;
   overflow: hidden;
-  border: 1px solid #bbbbbb;
+  border: 1px solid #e6e6e6;
   border-radius: 4px;
 }
 
