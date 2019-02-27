@@ -14,6 +14,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var run = require('run-sequence');
 var del = require('del');
+var babel = require('gulp-babel');
 var ghPages = require('gulp-gh-pages');
 
 gulp.task('style', function () {
@@ -71,6 +72,14 @@ gulp.task('copy-script', function () {
       '!app/js/modules.js',
       '!app/js/plugins.js'
     ])
+    .pipe(babel({
+      presets: ['@babel/env'],
+      "generatorOpts": {
+        "jsescOption": {
+          "minimal": true
+        }
+      }
+    }))
     .pipe(gulp.dest('build/js'))
     .pipe(browserSync.stream());
 });
