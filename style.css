@@ -2021,6 +2021,85 @@ label.error {
   color: #fd0d4d;
 }
 
+.counter {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+}
+
+.counter__control {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding: 4px;
+  background-color: transparent;
+  color: #bbbbbb;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.125s;
+  transition: 0.125s;
+}
+
+.counter__control:hover, .counter__control:focus {
+  color: #888888;
+  outline: 1px solid rgba(0, 0, 255, 0.1);
+}
+
+.counter__control:active {
+  color: #000000;
+}
+
+.counter__control::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 1px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: currentColor;
+}
+
+.counter__control--increase::before {
+  width: 12px;
+}
+
+.counter__control--increase::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 12px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: currentColor;
+}
+
+.counter__input {
+  width: 3ch;
+  margin-left: -0.5ch;
+  margin-right: -0.5ch;
+  text-align: center;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  padding: 2px 1px;
+  border: none;
+}
+
+.counter__input::-webkit-inner-spin-button, .counter__input::-webkit-outer-spin-button {
+  margin: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
+}
+
 .breadcrumbs__list {
   padding: 0;
   margin: 0;
@@ -4507,7 +4586,7 @@ tbody tr:hover td {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.2;
   cursor: pointer;
 }
@@ -4517,23 +4596,21 @@ tbody tr:hover td {
   margin-right: 6px;
 }
 
-.wok-designer-form__counter {
+.wok-designer-form__counter-wrapper {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.2;
-  cursor: pointer;
 }
 
-.wok-designer-form__counter input {
-  max-width: 56px;
+.wok-designer-form__counter {
   margin-right: 6px;
-  padding: 6px;
-  text-align: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .wok-designer-table__caption {
