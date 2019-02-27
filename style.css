@@ -2086,11 +2086,12 @@ label.error {
   width: 3ch;
   margin-left: -0.5ch;
   margin-right: -0.5ch;
+  padding: 2px 1px;
+  font-size: 14px;
   text-align: center;
+  border: none;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-  padding: 2px 1px;
-  border: none;
 }
 
 .counter__input::-webkit-inner-spin-button, .counter__input::-webkit-outer-spin-button {
