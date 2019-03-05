@@ -1,0 +1,67 @@
+.wok-designer-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 20px;
+}
+
+.wok-designer-form__section {
+  margin: 0;
+  padding: 10px;
+  border: 2px solid $grey-250;
+  box-sizing: border-box;
+}
+
+.wok-designer-form__section-title {
+  margin: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.wok-designer-form__current-images {
+  display: grid;
+  grid-auto-flow: column;
+  // grid-auto-rows: 100%;
+  height: 100px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid $grey-230;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.wok-designer-form__options-list {
+  @include clear-list();
+}
+
+.wok-designer-form__option {
+  margin-bottom: 8px;
+}
+
+.wok-designer-form__radiobox {
+  display: flex;
+  align-items: baseline;
+  font-size: 13px;
+  line-height: 1.2;
+  cursor: pointer;
+
+  input {
+    margin: 0;
+    margin-right: 6px;
+  }
+}
+
+.wok-designer-form__counter-wrapper {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.wok-designer-form__counter {
+  margin-right: 6px;
+  flex-shrink: 0;
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <title>Конструктор WOK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-wrapper">
+    @@include('blocks/header-layout.html')
+
+    <main class="main-layout">
+      <article class="page-layout">
+        <div class="page-layout__banner">
+          <div class="page-layout__header">
+            <div class="container">
+              <h1 class="page-layout__title common-title">Конструктор WOK</h1>
+            </div>
+          </div>
+        </div>
+        <div class="page-layout__breadcrumbs breadcrumbs container">
+          <ul class="breadcrumbs__list">
+            <li><a href="index.html">Главная</a></li>
+            <li>Конструктор WOK</li>
+          </ul>
+        </div>
+        <div class="page-layout__main container">
+          <div class="wok-designer" id="wok-designer">
+            <form class="wok-designer__form wok-designer-form" action="">
+              <fieldset class="wok-designer-form__section">
+                <h2 class="wok-designer-form__section-title">Основа</h2>
+                <div class="wok-designer-form__current-images">
+                  <img :src="'images/components/base/' + selectedBaseComponentObj.imgName" :alt="selectedBaseComponentObj.name">
+                </div>
+                <ul class="wok-designer-form__options-list">
+                  <li class="wok-designer-form__option" v-for="baseIngredient of components.base">
+                    <label class="wok-designer-form__radiobox">
+                      <input type="radio" name="base" v-model="baseComponent" :value="baseIngredient.name">
+                      {{baseIngredient.name}}
+                    </label>
+                  </li>
+                </ul>
+              </fieldset>
+              <fieldset class="wok-designer-form__section">
+                <h2 class="wok-designer-form__section-title">Наполнитель</h2>
+                <div class="wok-designer-form__current-images">
+                  <img :src="'images/components/filler/' + selectedFillerComponentObj.imgName" :alt="selectedFillerComponentObj.name">
+                </div>
+                <ul class="wok-designer-form__options-list">
+                  <li class="wok-designer-form__option" v-for="fillerIngredient of components.filler">
+                    <label class="wok-designer-form__radiobox">
+                      <input type="radio" name="filler" v-model="fillerComponent" :value="fillerIngredient.name">
+                      {{fillerIngredient.name}}
+                    </label>
+                  </li>
+                </ul>
+              </fieldset>
+              <fieldset class="wok-designer-form__section">
+                <h2 class="wok-designer-form__section-title">Соуса</h2>
+                <div class="wok-designer-form__current-images">
+                  <img v-for="souse of selectedSouses" :src="'images/components/souse/' + souse.imgName" :alt="souse.name">
+                </div>
+                <ul class="wok-designer-form__options-list">
+                  <li class="wok-designer-form__option" v-for="souseIngredient of components.souse">
+                    <span class="wok-designer-form__counter-wrapper">
+                      <app-counter class="wok-designer-form__counter" v-model.number="souseIngredient.piece"></app-counter>
+                      <!-- <input class="input" type="number" name="souse" v-model.number="souseIngredient.piece" placeholder="0" min="0"> -->
+                      {{souseIngredient.name}}, {{souseIngredient.price}} руб.
+                    </span>
+                  </li>
+                </ul>
+              </fieldset>
+              <fieldset class="wok-designer-form__section">
+                <h2 class="wok-designer-form__section-title">Топпинги</h2>
+                <div class="wok-designer-form__current-images">
+                  <img v-for="topping of selectedToppings" :src="'images/components/topping/' + topping.imgName" :alt="topping.name">
+                </div>
+                <ul class="wok-designer-form__options-list">
+                  <li class="wok-designer-form__option" v-for="toppingIngredient of components.topping">
+                    <span class="wok-designer-form__counter-wrapper">
+                      <app-counter
+                        class="wok-designer-form__counter"
+                        v-model.number="toppingIngredient.piece"
+                      ></app-counter>
+                      <!-- <input class="input" type="number" name="topping" v-model.number="toppingIngredient.piece" placeholder="0" min="0"> -->
+                      {{toppingIngredient.name}}, {{toppingIngredient.price}} руб.
+                    </span>
+                  </li>
+                </ul>
+              </fieldset>
+            </form>
+
+            <table class="wok-designer__table wok-designer-table">
+              <thead>
+                <tr>
+                  <th class="wok-designer-table__caption">Ваша лапша</th>
+                  <th class="wok-designer-table__caption">Цена</th>
+                  <th class="wok-designer-table__caption">Количество</th>
+                  <th class="wok-designer-table__caption">Стоимость</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="wok-designer-table__item cart-product">
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__name">
+                      <span class="cart-product__picture">
+                        <img :src="'images/components/noodles/' + slectedNoodlesImageName" :alt="selectedNoodlesName">
+                      </span>
+                      {{selectedNoodlesName}}
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__price">
+                      <span class="cart-product__price-amount">{{selectedNoodlesPrice}}</span>
+                      <span class="cart-product__price-currency">руб.</span>
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__quantity">
+                      <input class="input cart-product__quantity-input" type="number" name="quantity" v-model="selectedNoodlesCount" min="1" step="1">
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__cost">
+                      <span class="cart-product__cost-amount">{{selectedNoodlesCost}}</span>
+                      <span class="cart-product__cost-currency">руб.</span>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr class="wok-designer-table__item cart-product" v-for="souseRow in selectedSouses">
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__name">
+                      <span class="cart-product__picture">
+                        <img class="wok-designer-table__item-image" :src="'images/components/souse/' + souseRow.imgName" :alt="souseRow.name">
+                      </span>
+                      {{souseRow.name}}
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__price">
+                      <span class="cart-product__price-amount">{{souseRow.price}}</span>
+                      <span class="cart-product__price-currency">руб.</span>
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__quantity">
+                      <input class="input cart-product__quantity-input" type="number" name="quantity" v-model="souseRow.piece" min="0" step="1">
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__cost">
+                      <span class="cart-product__cost-amount">{{souseRow.price * souseRow.piece}}</span>
+                      <span class="cart-product__cost-currency">руб.</span>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr class="wok-designer-table__item cart-product" v-for="toppingRow in selectedToppings">
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__name">
+                      <span class="cart-product__picture">
+                        <img class="wok-designer-table__item-image" :src="'images/components/souse/' + toppingRow.imgName" :alt="toppingRow.name">
+                      </span>
+                      {{toppingRow.name}}
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__price">
+                      <span class="cart-product__price-amount">{{toppingRow.price}}</span>
+                      <span class="cart-product__price-currency">руб.</span>
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__quantity">
+                      <input class="input cart-product__quantity-input" type="number" name="quantity" v-model="toppingRow.piece" min="0" step="1">
+                    </span>
+                  </td>
+                  <td class="wok-designer-table__cell">
+                    <span class="cart-product__cost">
+                      <span class="cart-product__cost-amount">{{toppingRow.price * toppingRow.piece}}</span>
+                      <span class="cart-product__cost-currency">руб.</span>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td class="wok-designer-table__cell wok-designer-table__cost-label-cell" colspan="3">Итого:</td>
+                  <td class="wok-designer-table__cell wok-designer-table__cost-value-cell">{{totalPrice}} руб.</td>
+                </tr>
+                <tr>
+                  <td class="wok-designer-table__cell wok-designer-table__actions-cell" colspan="4">
+                    <button class="button" type="button" @click.prevent="addToOrderHandler">Добавить к заказу</button>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    @@include('blocks/footer-layout.html')
+  </div>
+  @@include('blocks/site-scripts.html')
+  <script src="js/vue.min.js"></script>
+  <script src="js/wok-designer.js"></script>
+</body>
+</html>

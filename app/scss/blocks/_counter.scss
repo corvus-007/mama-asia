@@ -1,0 +1,77 @@
+.counter {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid $grey-230;
+  border-radius: 4px;
+}
+
+.counter__control {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  padding: 4px;
+  background-color: transparent;
+  color: $grey-187;
+  border: none;
+  cursor: pointer;
+  transition: $duration / 2;
+
+  &:hover,
+  &:focus {
+    color: darken($grey-187, 20%);
+    outline: 1px solid rgba(blue, 0.1);
+  }
+
+  &:active {
+    color: #000000;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 1px;
+    transform: translate(-50%, -50%);
+    background-color: currentColor;
+  }
+
+  &--decrease {}
+
+  &--increase {
+    &::before {
+      width: 12px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1px;
+      height: 12px;
+      transform: translate(-50%, -50%);
+      background-color: currentColor;
+    }
+  }
+}
+
+.counter__input {
+  width: 3ch;
+  margin-left: -0.5ch;
+  margin-right: -0.5ch;
+  padding: 2px 1px;
+  font-size: 14px;
+  text-align: center;
+  border: none;
+  box-sizing: content-box;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    margin: 0;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}

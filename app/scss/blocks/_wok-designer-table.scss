@@ -1,0 +1,64 @@
+.wok-designer-table {
+}
+
+.wok-designer-table__caption {
+  padding: 5px 20px;
+  font-size: 16px;
+  border: none;
+  color: $muted-color;
+  text-transform: uppercase;
+  border-bottom: 2px solid $grey-250;
+  box-sizing: border-box;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  @include mq-max(567px) {
+    font-size: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.wok-designer-table__cell {
+  padding: 10px 20px;
+  border: none;
+  border-bottom: 1px solid $grey-250;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  @include mq-max(567px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  tr:hover & {
+    background-color: transparent;
+  }
+}
+
+.wok-designer-table__cost-label-cell {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: right;
+}
+
+.wok-designer-table__cost-value-cell {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.wok-designer-table__actions-cell {
+  text-align: right;
+}
