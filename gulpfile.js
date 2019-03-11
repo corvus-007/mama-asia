@@ -72,6 +72,7 @@ gulp.task('copy-script', function () {
       '!app/js/modules.js',
       '!app/js/plugins.js'
     ])
+    .pipe(include())
     .pipe(babel({
       presets: ['@babel/env'],
       "generatorOpts": {
