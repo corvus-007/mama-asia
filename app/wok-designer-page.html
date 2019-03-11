@@ -61,7 +61,7 @@
               <fieldset class="wok-designer-form__section">
                 <h2 class="wok-designer-form__section-title">Соуса</h2>
                 <div class="wok-designer-form__current-images">
-                  <img v-for="souse of selectedSouses" :src="'images/components/souse/' + souse.imgName" :alt="souse.name">
+                  <img src="images/components/souse/highlight.jpg" alt="Соуса">
                 </div>
                 <ul class="wok-designer-form__options-list">
                   <li class="wok-designer-form__option" v-for="souseIngredient of components.souse">
@@ -76,7 +76,7 @@
               <fieldset class="wok-designer-form__section">
                 <h2 class="wok-designer-form__section-title">Топпинги</h2>
                 <div class="wok-designer-form__current-images">
-                  <img v-for="topping of selectedToppings" :src="'images/components/topping/' + topping.imgName" :alt="topping.name">
+                  <img src="images/components/topping/highlight.jpg" alt="Топпинги">
                 </div>
                 <ul class="wok-designer-form__options-list">
                   <li class="wok-designer-form__option" v-for="toppingIngredient of components.topping">

@@ -10,7 +10,7 @@
   width: 28px;
   height: 28px;
   flex-shrink: 0;
-  padding: 4px;
+  padding: 10px;
   background-color: transparent;
   color: $grey-187;
   border: none;
@@ -20,7 +20,11 @@
   &:hover,
   &:focus {
     color: darken($grey-187, 20%);
-    outline: 1px solid rgba(blue, 0.1);
+  }
+
+  &:focus {
+    outline: none;
+    background-color: $grey-250;
   }
 
   &:active {
