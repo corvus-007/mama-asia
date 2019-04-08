@@ -324,7 +324,175 @@ const app = new Vue({
   },
   methods: {
     addToOrderHandler() {
-      console.log(JSON.stringify(this.wokObject, '', 2));
+      const data = [];
+      const noodle = {
+        id: 0,
+        name: this.selectedNoodlesName,
+        cover: this.slectedNoodlesImageName,
+        size: 0,
+        price: this.selectedNoodlesPrice,
+        count: this.selectedNoodlesCount
+      };
+      const souses = this.selectedSouses.map(convertObjForCookieSend);
+      const toppings = this.selectedToppings.map(convertObjForCookieSend);
+
+      data.push(noodle);
+      data.push(souses);
+      data.push(toppings);
+      // data.concat(souses, toppings);
+
+      // добавить в куки data
+
+      if (typeof cart != 'undefined') {
+        var d = JSON.parse($.cookie('cart'));
+        var cost = 0;
+        var count = 0;
+        for (var i in d) {
+          cost += parseInt(d[i].price * d[i].count);
+          count += parseInt(d[i].count);
+        }
+        $('.header-cart__tip').show();
+        // $('.header-cart__count').text(Object.size(d));
+        $('.header-cart__count').text(count);
+        $('.header-cart__price-amount').text(cost);
+      }
+
+      const resultData = data.flat();
+
+      console.log(resultData);
+
+
+      // console.log(JSON.stringify(this.wokObject, '', 2));
+
+
+
+
+      // Костика
+
+
+
+      if (typeof $.cookie('cart') == 'undefined') {
+        //Если cookie не задана
+        //объявляем массив для cookie
+        // var d = [];
+        //добавляем в него data (лапша + соусы + топпинги) в формате *:
+        // id:
+        // name:
+        // cover:
+        // size:
+        // price:
+        // count:
+        // d.push(this.wokObject); // прежный вариант (нужен другой формат, не wok, a *)
+        $.cookie('cart', JSON.stringify(resultData, '', 2), {
+          expires: 365,
+          path: '/'
+        });
+      } else {
+        //Если cookie задана
+
+        // var data = this.wokObject; // прежный вариант (нужен другой формат, не wok, a *)
+        //парсим cookie
+        var d = JSON.parse($.cookie('cart'));
+        var is_find = false;
+
+        var overlap = [];
+
+
+        for (let i = 0; i < resultData.length; i++) {
+          for (let j = 0; j < d.length; j++) {
+            if (d[j].name == resultData[i].name && d[j].cover == resultData[i].cover) {
+              d[j].count = parseInt(d[j].count) + parseInt(resultData[i].count);
+
+              is_find = true;
+            }
+          }
+          if (!is_find) {
+            overlap.push(resultData[i]);
+          }
+          is_find = false;
+        }
+        for (let k = 0; k < overlap.length; k++) {
+          d.push(overlap[k]);
+        }
+
+
+        //обходим данные из cookie
+        // for (var i in d) {
+        //   //console.log(d[i].id, data.id, d[i].size, data.size);
+        //   // TODO: переписать старый вариант под другую структуру
+        //   if (d[i].noodle != null) {
+
+
+
+        //     if (d[i].name == resultData.name && d[i].cover == resultData.cover) {
+        //       d[i].count = parseInt(d[i].count) + parseInt(resultData.count);
+        //       // console.log(d[i].count, data.count);
+        //       is_find = true;
+        //     }
+
+        //     // //souses
+        //     // for (var j = 0; j < d[i].souses.length; j++) {
+        //     //   for (var k = 0; k < data.souses.length; k++) {
+        //     //     if(d[i].souses[j].name == data.souses[k].name)
+        //     //     {
+        //     //       //если товар уже есть, увеличиваем количество
+        //     //       d[i].souses[j].piece =  parseInt(data.souses[k].piece);
+        //     //       //d[i].souses[j].price = parseInt(d[i].souses[j].price) + parseInt(data.souses[k].price);
+        //     //     }
+        //     //     else if (!d[i].souses.includes(data.souses[k])) {
+        //     //       d[i].souses.push(data.souses[k]);
+        //     //     }
+        //     //   }
+        //     // }
+
+        //     // //toppings
+        //     // for (var j = 0; j < d[i].toppings.length; j++) {
+        //     //   for (var k = 0; k < data.toppings.length; k++) {
+        //     //     if(d[i].toppings[j].name == data.toppings[k].name)
+        //     //     {
+        //     //       //если товар уже есть, увеличиваем количество
+        //     //       d[i].toppings[j].piece =  parseInt(data.toppings[k].piece);
+        //     //       //d[i].toppings[j].price = parseInt(d[i].toppings[j].price) + parseInt(data.toppings[k].price);
+        //     //     }
+        //     //     else if (!d[i].toppings.includes(data.toppings[k])) {
+        //     //       d[i].toppings.push(data.toppings[k]);
+        //     //     }
+        //     //   }
+        //     // }
+        //   }
+        // }
+        //надо переписать, т.к. там добавляется не 1 объект
+        // if (is_find) {
+        //   console.log(d);
+        // } else {
+        //   d.push(data);
+        //
+        // }
+        console.log(d);
+        //по итогу берем значение d, и забиваем его в cookie
+        $.cookie('cart', JSON.stringify(d), {
+          expires: 365,
+          path: '/'
+        });
+        console.log(d, 1);
+      }
+      alert('Добавлено в корзину!');
+      //обновляем значение в отображении корзины
+
+      var cart = $.cookie('cart');
+      if (typeof cart != 'undefined') {
+        var d = JSON.parse($.cookie('cart'));
+        var cost = 0;
+        var count = 0;
+        for (var i in d) {
+          cost += parseInt(d[i].price * d[i].count);
+          count += parseInt(d[i].count);
+        }
+        $('.header-cart__tip').show();
+        // $('.header-cart__count').text(Object.size(d));
+        $('.header-cart__count').text(count);
+        $('.header-cart__price-amount').text(cost);
+      }
     }
   }
 });
@@ -332,4 +500,22 @@ const app = new Vue({
 function getImageName(string) {
   const extensionIndex = string.lastIndexOf('.');
   return string.slice(0, extensionIndex);
+}
+
+function convertObjForCookieSend(product) {
+  const id = product.id || 0;
+  const name = product.name || '';
+  const cover = product.imgName || '';
+  const price = product.price || '';
+  const size = product.size || 0;
+  const count = product.piece || '';
+
+  return {
+    id,
+    name,
+    cover,
+    size,
+    price,
+    count
+  };
 }
