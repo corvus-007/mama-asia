@@ -83,185 +83,221 @@ const app = new Vue({
     baseComponent: `Фунчоза (крахмальная) + овощи`,
     fillerComponent: `Свинина по-китайски`,
     components: {
-      base: [{
+      base: [
+        {
+          id: 'base_1',
           name: `Фунчоза (крахмальная) + овощи`,
           price: 95,
-          imgName: `lapsha_risovaya.jpg`
+          imgName: `funchoza_krahmalnaya_ovoshchi.jpg`
         },
         {
+          id: 'base_2',
           name: `Харусамэ (рисовая) + овощи`,
           price: 95,
-          imgName: `lapsha_grechnevaya.jpg`
+          imgName: `harusameh_risovaya_ovoshchi.jpg`
         },
         {
+          id: 'base_3',
           name: `Удон (пшеничная) + овощи`,
           price: 95,
-          imgName: `lapsha_udon.jpg`
+          imgName: `udon_pshenichnaya_ovoshchi.jpg`
         },
         {
+          id: 'base_4',
           name: `Соба (гречневая)+ овощи`,
           price: 95,
-          imgName: `lapsha_yaichnaya.jpg`
+          imgName: `soba_grechnevaya_ovoshchi.jpg`
         },
         {
+          id: 'base_5',
           name: `Лапша яична + овощи`,
           price: 95,
-          imgName: `lapsha_yaichnaya.jpg`
+          imgName: `lapsha_yaichna_ovoshchi.jpg`
         },
         {
+          id: 'base_6',
           name: `Рис  "Тепаньяки"`,
           price: 50,
-          imgName: `ris.jpg`
+          imgName: `ris_tepanyaki.jpg`
         }
       ],
-      filler: [{
+      filler: [
+        {
+          id: 'filler_1',
           name: `Свинина по-китайски`,
           price: 60,
-          imgName: `s_ovoshchami.jpg`
+          imgName: `svinina_po_kitajski.jpg`
         },
         {
+          id: 'filler_2',
           name: `Говядина`,
           price: 95,
-          imgName: `so_svininoj_i_ovoshchami.jpg`
+          imgName: `govyadina.jpg`
         },
         {
+          id: 'filler_3',
           name: `Курица`,
           price: 50,
-          imgName: `s_kuricej_i_ovoshchami.jpg`
+          imgName: `kurica.jpg`
         },
         {
+          id: 'filler_4',
           name: `Утка`,
           price: 95,
-          imgName: `s_moreproduktami_i_ovoshchami.jpg`
+          imgName: `utka.jpg`
         },
         {
+          id: 'filler_5',
           name: `Ветчина жареная`,
           price: 60,
-          imgName: `s_lososem.jpg`
+          imgName: `vetchina_zharenaya.jpg`
         },
         {
+          id: 'filler_6',
           name: `Бекон жареный`,
           price: 95,
-          imgName: `s_krevetkami_i_sladkim_sousom_chili.jpg`
+          imgName: `bekon_zharenyj.jpg`
         },
         {
+          id: 'filler_7',
           name: `Кальмары`,
           price: 90,
-          imgName: `s_kuricej_i_sladkim_sousom_chili.jpg`
+          imgName: `kalmary.jpg`
         },
         {
+          id: 'filler_8',
           name: `Лосось с/с`,
           price: 155,
-          imgName: `s_kuricej_i_gribami.jpg`
+          imgName: `losos_s_s.jpg`
         },
         {
+          id: 'filler_9',
           name: `Креветки`,
           price: 155,
-          imgName: `s_krevetkami_ananasom_i_sladkim_sousom_chili.jpg`
+          imgName: `krevetki.jpg`
         }
       ],
-      souse: [{
+      souse: [
+        {
+          id: 'souse_1',
           name: `Устричный`,
           price: 45,
           piece: 0,
-          imgName: `sous_teriyaki.jpg`
+          imgName: `ustrichnyj.jpg`
         },
         {
+          id: 'souse_2',
           name: `Сливочный`,
           price: 45,
           piece: 0,
-          imgName: `sous_kimchi_bejs.jpg`
+          imgName: `slivochnyj.jpg`
         },
         {
+          id: 'souse_3',
           name: `Соевый`,
           price: 45,
           piece: 0,
-          imgName: `sous_spajs.jpg`
+          imgName: `soevyj.jpg`
         },
         {
+          id: 'souse_4',
           name: `Острый "Спайси"`,
           price: 45,
           piece: 0,
-          imgName: `majonez.jpg`
+          imgName: `ostryj_spajsi.jpg`
         },
         {
+          id: 'souse_5',
           name: `Кисло-сладкий`,
           price: 45,
           piece: 0,
-          imgName: `sous_unagi.jpg`
+          imgName: `kislo_sladkij.jpg`
         },
         {
+          id: 'souse_6',
           name: `Терияки`,
           price: 45,
           piece: 0,
-          imgName: `sous_unagi.jpg`
+          imgName: `teriyaki.jpg`
         },
         {
+          id: 'souse_7',
           name: `Ореховый`,
           price: 50,
           piece: 0,
-          imgName: `sous_unagi.jpg`
+          imgName: `orekhovyj.jpg`
         },
         {
+          id: 'souse_8',
           name: `Тонкацу`,
           price: 45,
           piece: 0,
-          imgName: `sous_unagi.jpg`
+          imgName: `tonkacu.jpg`
         },
         {
+          id: 'souse_9',
           name: `ХойСин`,
           price: 50,
           piece: 0,
-          imgName: `sous_unagi.jpg`
+          imgName: `hojsin.jpg`
         },
         {
+          id: 'souse_10',
           name: `Кимчи`,
           price: 50,
           piece: 0,
-          imgName: `sous_unagi.jpg`
+          imgName: `kimchi.jpg`
         },
         {
+          id: 'souse_11',
           name: `Чили`,
           price: 45,
           piece: 0,
-          imgName: `sous_unagi.jpg`
+          imgName: `chili.jpg`
         }
       ],
-      topping: [{
+      topping: [
+        {
+          id: 'topping_1',
           name: `Капуста цветная и брокколи`,
           price: 30,
           piece: 0,
-          imgName: `sous_teriyaki.jpg`
+          imgName: `kapusta_cvetnaya_i_brokkoli.jpg`
         },
         {
+          id: 'topping_2',
           name: `Фасоль стручковая`,
           price: 30,
           piece: 0,
-          imgName: `sous_teriyaki.jpg`
+          imgName: `fasol_struchkovaya.jpg`
         },
         {
+          id: 'topping_3',
           name: `Грибы шитаки жареные`,
           price: 30,
           piece: 0,
-          imgName: `sous_teriyaki.jpg`
+          imgName: `griby_shitaki_zharenye.jpg`
         },
         {
+          id: 'topping_4',
           name: `Сыр моцарелла`,
           price: 50,
           piece: 0,
-          imgName: `sous_teriyaki.jpg`
+          imgName: `syr_mocarella.jpg`
         },
         {
+          id: 'topping_5',
           name: `Кунжут`,
           price: 5,
           piece: 0,
-          imgName: `sous_teriyaki.jpg`
+          imgName: `kunzhut.jpg`
         },
         {
+          id: 'topping_6',
           name: `Шампиньоны жареные`,
           price: 40,
           piece: 0,
-          imgName: `sous_teriyaki.jpg`
+          imgName: `shampinony_zharenye.jpg`
         }
       ]
     }
@@ -276,6 +312,9 @@ const app = new Vue({
       return this.components.filler.find((it) => {
         return it.name === this.fillerComponent;
       });
+    },
+    createNoodleId() {
+      return `${this.selectedBaseComponentObj.id}-${this.selectedFillerComponentObj.id}`;
     },
     selectedNoodlesName() {
       return `${this.baseComponent.charAt(0).toUpperCase()}${this.baseComponent.slice(1).toLowerCase()} и ${this.fillerComponent.toLowerCase()}`;
@@ -326,7 +365,7 @@ const app = new Vue({
     addToOrderHandler() {
       const data = [];
       const noodle = {
-        id: 0,
+        id: this.createNoodleId,
         name: this.selectedNoodlesName,
         cover: this.slectedNoodlesImageName,
         size: 0,
@@ -339,7 +378,6 @@ const app = new Vue({
       data.push(noodle);
       data.push(souses);
       data.push(toppings);
-      // data.concat(souses, toppings);
 
       // добавить в куки data
 
@@ -361,42 +399,22 @@ const app = new Vue({
 
       console.log(resultData);
 
-
-      // console.log(JSON.stringify(this.wokObject, '', 2));
-
-
-
-
       // Костика
 
 
 
       if (typeof $.cookie('cart') == 'undefined') {
         //Если cookie не задана
-        //объявляем массив для cookie
-        // var d = [];
-        //добавляем в него data (лапша + соусы + топпинги) в формате *:
-        // id:
-        // name:
-        // cover:
-        // size:
-        // price:
-        // count:
-        // d.push(this.wokObject); // прежный вариант (нужен другой формат, не wok, a *)
         $.cookie('cart', JSON.stringify(resultData, '', 2), {
           expires: 365,
           path: '/'
         });
       } else {
         //Если cookie задана
-
-        // var data = this.wokObject; // прежный вариант (нужен другой формат, не wok, a *)
-        //парсим cookie
         var d = JSON.parse($.cookie('cart'));
         var is_find = false;
 
         var overlap = [];
-
 
         for (let i = 0; i < resultData.length; i++) {
           for (let j = 0; j < d.length; j++) {
@@ -415,60 +433,6 @@ const app = new Vue({
           d.push(overlap[k]);
         }
 
-
-        //обходим данные из cookie
-        // for (var i in d) {
-        //   //console.log(d[i].id, data.id, d[i].size, data.size);
-        //   // TODO: переписать старый вариант под другую структуру
-        //   if (d[i].noodle != null) {
-
-
-
-        //     if (d[i].name == resultData.name && d[i].cover == resultData.cover) {
-        //       d[i].count = parseInt(d[i].count) + parseInt(resultData.count);
-        //       // console.log(d[i].count, data.count);
-        //       is_find = true;
-        //     }
-
-        //     // //souses
-        //     // for (var j = 0; j < d[i].souses.length; j++) {
-        //     //   for (var k = 0; k < data.souses.length; k++) {
-        //     //     if(d[i].souses[j].name == data.souses[k].name)
-        //     //     {
-        //     //       //если товар уже есть, увеличиваем количество
-        //     //       d[i].souses[j].piece =  parseInt(data.souses[k].piece);
-        //     //       //d[i].souses[j].price = parseInt(d[i].souses[j].price) + parseInt(data.souses[k].price);
-        //     //     }
-        //     //     else if (!d[i].souses.includes(data.souses[k])) {
-        //     //       d[i].souses.push(data.souses[k]);
-        //     //     }
-        //     //   }
-        //     // }
-
-        //     // //toppings
-        //     // for (var j = 0; j < d[i].toppings.length; j++) {
-        //     //   for (var k = 0; k < data.toppings.length; k++) {
-        //     //     if(d[i].toppings[j].name == data.toppings[k].name)
-        //     //     {
-        //     //       //если товар уже есть, увеличиваем количество
-        //     //       d[i].toppings[j].piece =  parseInt(data.toppings[k].piece);
-        //     //       //d[i].toppings[j].price = parseInt(d[i].toppings[j].price) + parseInt(data.toppings[k].price);
-        //     //     }
-        //     //     else if (!d[i].toppings.includes(data.toppings[k])) {
-        //     //       d[i].toppings.push(data.toppings[k]);
-        //     //     }
-        //     //   }
-        //     // }
-        //   }
-        // }
-        //надо переписать, т.к. там добавляется не 1 объект
-        // if (is_find) {
-        //   console.log(d);
-        // } else {
-        //   d.push(data);
-        //
-        // }
-        console.log(d);
         //по итогу берем значение d, и забиваем его в cookie
         $.cookie('cart', JSON.stringify(d), {
           expires: 365,

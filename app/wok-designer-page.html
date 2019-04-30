@@ -33,7 +33,7 @@
               <fieldset class="wok-designer-form__section">
                 <h2 class="wok-designer-form__section-title">Основа</h2>
                 <div class="wok-designer-form__current-images">
-                  <img :src="'images/components/base/' + selectedBaseComponentObj.imgName" :alt="selectedBaseComponentObj.name">
+                  <img :src="'images/wok/' + selectedBaseComponentObj.imgName" :alt="selectedBaseComponentObj.name">
                 </div>
                 <ul class="wok-designer-form__options-list">
                   <li class="wok-designer-form__option" v-for="baseIngredient of components.base">
@@ -47,7 +47,7 @@
               <fieldset class="wok-designer-form__section">
                 <h2 class="wok-designer-form__section-title">Наполнитель</h2>
                 <div class="wok-designer-form__current-images">
-                  <img :src="'images/components/filler/' + selectedFillerComponentObj.imgName" :alt="selectedFillerComponentObj.name">
+                  <img :src="'images/wok/' + selectedFillerComponentObj.imgName" :alt="selectedFillerComponentObj.name">
                 </div>
                 <ul class="wok-designer-form__options-list">
                   <li class="wok-designer-form__option" v-for="fillerIngredient of components.filler">
@@ -61,13 +61,12 @@
               <fieldset class="wok-designer-form__section">
                 <h2 class="wok-designer-form__section-title">Соуса</h2>
                 <div class="wok-designer-form__current-images">
-                  <img src="images/components/souse/highlight.jpg" alt="Соуса">
+                  <img src="images/wok/souse_highlight.jpg" alt="Соуса">
                 </div>
                 <ul class="wok-designer-form__options-list">
                   <li class="wok-designer-form__option" v-for="souseIngredient of components.souse">
                     <span class="wok-designer-form__counter-wrapper">
                       <app-counter class="wok-designer-form__counter" v-model.number="souseIngredient.piece"></app-counter>
-                      <!-- <input class="input" type="number" name="souse" v-model.number="souseIngredient.piece" placeholder="0" min="0"> -->
                       {{souseIngredient.name}}, {{souseIngredient.price}} руб.
                     </span>
                   </li>
@@ -76,7 +75,7 @@
               <fieldset class="wok-designer-form__section">
                 <h2 class="wok-designer-form__section-title">Топпинги</h2>
                 <div class="wok-designer-form__current-images">
-                  <img src="images/components/topping/highlight.jpg" alt="Топпинги">
+                  <img src="images/wok/topping_highlight.jpg" alt="Топпинги">
                 </div>
                 <ul class="wok-designer-form__options-list">
                   <li class="wok-designer-form__option" v-for="toppingIngredient of components.topping">
@@ -85,7 +84,6 @@
                         class="wok-designer-form__counter"
                         v-model.number="toppingIngredient.piece"
                       ></app-counter>
-                      <!-- <input class="input" type="number" name="topping" v-model.number="toppingIngredient.piece" placeholder="0" min="0"> -->
                       {{toppingIngredient.name}}, {{toppingIngredient.price}} руб.
                     </span>
                   </li>
@@ -107,7 +105,7 @@
                   <td class="wok-designer-table__cell">
                     <span class="cart-product__name">
                       <span class="cart-product__picture">
-                        <img :src="'images/components/noodles/' + slectedNoodlesImageName" :alt="selectedNoodlesName">
+                        <img :src="'images/wok/' + slectedNoodlesImageName" :alt="selectedNoodlesName">
                       </span>
                       {{selectedNoodlesName}}
                     </span>
@@ -136,7 +134,7 @@
                   <td class="wok-designer-table__cell">
                     <span class="cart-product__name">
                       <span class="cart-product__picture">
-                        <img class="wok-designer-table__item-image" :src="'images/components/souse/' + souseRow.imgName" :alt="souseRow.name">
+                        <img class="wok-designer-table__item-image" :src="'images/wok/' + souseRow.imgName" :alt="souseRow.name">
                       </span>
                       {{souseRow.name}}
                     </span>
@@ -165,7 +163,7 @@
                   <td class="wok-designer-table__cell">
                     <span class="cart-product__name">
                       <span class="cart-product__picture">
-                        <img class="wok-designer-table__item-image" :src="'images/components/souse/' + toppingRow.imgName" :alt="toppingRow.name">
+                        <img class="wok-designer-table__item-image" :src="'images/wok/' + toppingRow.imgName" :alt="toppingRow.name">
                       </span>
                       {{toppingRow.name}}
                     </span>
