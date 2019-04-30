@@ -1,8 +1,7 @@
 window.map = (function (window, $) {
   'use strict';
 
-  // var dirname = window.util.isDevMode() ? '' : '/wp-content/themes/mama-asia/';
-  var dirname = '';
+  var dirname = '/';
 
   var mapElem = document.querySelector('#contact-map');
 
@@ -16,7 +15,7 @@ window.map = (function (window, $) {
     var map = new ymaps.Map(mapElem, {
       center: [53.276145, 34.315436],
       zoom: 16,
-      controls: []
+      controls: ['zoomControl']
     });
 
     map.behaviors.disable(['scrollZoom']);
