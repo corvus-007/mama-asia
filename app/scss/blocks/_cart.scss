@@ -1,14 +1,11 @@
 .cart {
-
 }
 
 .cart__table {
   margin-bottom: 40px;
-  // table-layout: fixed;
 }
 
 .cart__captions {
-
 }
 
 .cart__caption {
@@ -29,12 +26,9 @@
   }
 
   &--name {
-    // width: 350px;
   }
 
   &--delete {
-    // width: 100px;
-    // text-align: center;
   }
 
   @include mq-max(567px) {
@@ -72,4 +66,15 @@
     padding-left: 5px;
     padding-right: 5px;
   }
+}
+
+.cart__cost-label-cell {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: right;
+}
+
+.cart__cost-value-cell {
+  font-weight: 600;
+  font-size: 20px;
 }
