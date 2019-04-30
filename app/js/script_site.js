@@ -15,12 +15,16 @@ var w = {
       if ($('.cart').length) {
         var d = JSON.parse($.cookie('cart'));
         d.forEach(function (item) {
+          var isForWOK = /[base|filler|souse|topping]/.test(item.id);
+          var hrefAttrString = isForWOK ? '' : 'href="/product/' + item.id + '"';
+          var srcValueString = isForWOK ? '/images/wok/' + item.cover : '/uploads/' + item.cover;
+
           $('.cart__list').append('\
           <tr class="cart__item cart-product" data-id="' + item.id + '" data-size="' + item.size + '">\
             <td class="cart__list-cell">\
-              <a class="cart-product__name" href="/product/' + item.id + '" target="_blank">\
+              <a class="cart-product__name" '+ hrefAttrString + ' target="_blank">\
                 <span class="cart-product__picture">\
-                  <img src="/uploads/' + item.cover + '" alt="' + item.name + '">\
+                  <img src="' + srcValueString + '" alt="' + item.name + '">\
                 </span>' + item.name +
             '</a>\
             </td>\
@@ -283,6 +287,7 @@ var w = {
         // $('.header-cart__count').text(Object.size(d));
         $('.header-cart__count').text(count);
         $('.header-cart__price-amount').text(cost);
+        $('[data-target="cart-cost"]').text(cost);
       }
     },
     'change_cart': function (el) {
@@ -315,7 +320,6 @@ var w = {
     },
     'delete_from_cart': function (data) {
       if (confirm('Удалить из заказа?')) {
-        debugger;
         var cart = $.cookie('cart');
         if (typeof cart != 'undefined') {
           var d = JSON.parse($.cookie('cart'));
