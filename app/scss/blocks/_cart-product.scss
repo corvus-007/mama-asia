@@ -16,6 +16,10 @@
   text-decoration: none;
   color: $base-color;
   transition: $duration;
+
+  &:not([href]) {
+    color: $base-color;
+  }
 }
 
 .cart-product__picture {
