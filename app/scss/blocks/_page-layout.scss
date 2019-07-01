@@ -1,4 +1,5 @@
-.page-layout {}
+.page-layout {
+}
 
 .page-layout__banner {
   position: relative;
@@ -6,7 +7,10 @@
   align-items: center;
   height: 320px;
   color: #ffffff;
-  background: #ff9703 url("images/banner-shop1-2.jpg") no-repeat center/cover;
+  background-color: #ff9703;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   &::before {
     content: "";
@@ -15,7 +19,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(#000000, 0.1), rgba(#000000, 0.05));
+    background: linear-gradient(to top, rgba(#000000, 0.2), rgba(#000000, 0.05));
     pointer-events: none;
   }
 
@@ -41,4 +45,5 @@
   margin-bottom: 30px;
 }
 
-.page-layout__main {}
+.page-layout__main {
+}
