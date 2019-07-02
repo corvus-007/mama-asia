@@ -2,8 +2,13 @@
   @include clear-list();
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  grid-gap: $gutter / 2;
+  grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+  grid-gap: 8px;
+
+  @include mq-min(568px) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: $gutter / 2;
+  }
 }
 
 .products-list__item {
