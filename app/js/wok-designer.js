@@ -1,15 +1,15 @@
 Vue.component('app-counter', {
   props: {
-    'value': Number,
-    'step': {
+    value: Number,
+    step: {
       type: Number,
       default: 1
     },
-    'min': {
+    min: {
       type: Number,
       default: 0
     },
-    'max': {
+    max: {
       type: Number,
       default: Infinity
     }
@@ -72,7 +72,7 @@ Vue.component('app-counter', {
       }
 
       this.$emit('input', newVal);
-    },
+    }
   }
 });
 
@@ -304,12 +304,12 @@ const app = new Vue({
   },
   computed: {
     selectedBaseComponentObj() {
-      return this.components.base.find((it) => {
+      return this.components.base.find(it => {
         return it.name === this.baseComponent;
       });
     },
     selectedFillerComponentObj() {
-      return this.components.filler.find((it) => {
+      return this.components.filler.find(it => {
         return it.name === this.fillerComponent;
       });
     },
@@ -317,35 +317,54 @@ const app = new Vue({
       return `${this.selectedBaseComponentObj.id}-${this.selectedFillerComponentObj.id}`;
     },
     selectedNoodlesName() {
-      return `${this.baseComponent.charAt(0).toUpperCase()}${this.baseComponent.slice(1).toLowerCase()} и ${this.fillerComponent.toLowerCase()}`;
+      return `${this.baseComponent
+        .charAt(0)
+        .toUpperCase()}${this.baseComponent
+        .slice(1)
+        .toLowerCase()} и ${this.fillerComponent.toLowerCase()}`;
     },
     slectedNoodlesImageName() {
-      return `${getImageName(this.selectedBaseComponentObj.imgName)}-${getImageName(this.selectedFillerComponentObj.imgName)}.jpg`;
+      return `${getImageName(
+        this.selectedBaseComponentObj.imgName
+      )}-${getImageName(this.selectedFillerComponentObj.imgName)}.jpg`;
     },
     selectedNoodlesPrice() {
-      return this.selectedBaseComponentObj.price + this.selectedFillerComponentObj.price;
+      return (
+        this.selectedBaseComponentObj.price +
+        this.selectedFillerComponentObj.price
+      );
     },
     selectedNoodlesCost() {
-      return this.selectedNoodlesPrice * this.selectedNoodlesCount
+      return this.selectedNoodlesPrice * this.selectedNoodlesCount;
     },
     selectedSouses() {
-      return this.components.souse.filter((it) => {
+      return this.components.souse.filter(it => {
         return it.piece > 0;
       });
     },
     selectedToppings() {
-      return this.components.topping.filter((it) => {
+      return this.components.topping.filter(it => {
         return it.piece > 0;
       });
     },
     totalPriceSouses() {
-      return this.selectedSouses.reduce((summ, it) => summ += it.price * it.piece, 0);
+      return this.selectedSouses.reduce(
+        (summ, it) => (summ += it.price * it.piece),
+        0
+      );
     },
     totalPriceToppings() {
-      return this.selectedToppings.reduce((summ, it) => summ += it.price * it.piece, 0);
+      return this.selectedToppings.reduce(
+        (summ, it) => (summ += it.price * it.piece),
+        0
+      );
     },
     totalPrice() {
-      return this.selectedNoodlesCost + this.totalPriceSouses + this.totalPriceToppings;
+      return (
+        this.selectedNoodlesCost +
+        this.totalPriceSouses +
+        this.totalPriceToppings
+      );
     },
     wokObject() {
       return {
@@ -358,7 +377,7 @@ const app = new Vue({
         },
         souses: this.selectedSouses,
         toppings: this.selectedToppings
-      }
+      };
     }
   },
   methods: {
@@ -401,8 +420,6 @@ const app = new Vue({
 
       // Костика
 
-
-
       if (typeof $.cookie('cart') == 'undefined') {
         //Если cookie не задана
         $.cookie('cart', JSON.stringify(resultData, '', 2), {
@@ -418,7 +435,10 @@ const app = new Vue({
 
         for (let i = 0; i < resultData.length; i++) {
           for (let j = 0; j < d.length; j++) {
-            if (d[j].name == resultData[i].name && d[j].cover == resultData[i].cover) {
+            if (
+              d[j].name == resultData[i].name &&
+              d[j].cover == resultData[i].cover
+            ) {
               d[j].count = parseInt(d[j].count) + parseInt(resultData[i].count);
 
               is_find = true;
