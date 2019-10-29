@@ -51,6 +51,10 @@
 .header-layout__info {
   margin-top: 8px;
 
+  @include mq-max(666px) {
+    width: 100%;
+  }
+
   @include mq-min(667px) {
     margin-left: auto;
     margin-top: 0;

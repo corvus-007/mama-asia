@@ -7,7 +7,7 @@
   align-items: center;
   height: 320px;
   color: #ffffff;
-  background-color: #ff9703;
+  background-color: #757575;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -36,8 +36,20 @@
 .page-layout__title {
   display: block;
   font-weight: 600;
-  font-size: 80px;
+  font-size: 40px;
   color: #ffffff;
+
+  .page-layout--product & {
+    font-size: 32px;
+  }
+
+  @include mq-min(1024px) {
+    font-size: 80px;
+
+  .page-layout--product & {
+    font-size: 40px;
+  }
+  }
 }
 
 .page-layout__breadcrumbs {

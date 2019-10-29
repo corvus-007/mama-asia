@@ -9,6 +9,10 @@
     white-space: nowrap;
     transition: $duration;
 
+    &:not([href]) {
+      cursor: default;
+    }
+
     &:hover,
     &:focus {
       background-color: rgba(#000000, 0.1);

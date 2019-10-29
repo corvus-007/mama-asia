@@ -1,15 +1,22 @@
 .header-info {
-  line-height: 1.15;
   max-width: 320px;
+  line-height: 1.15;
 
   b {
     font-weight: 600;
   }
+
+  @include mq-max(666px) {
+    display: flex;
+    max-width: none;
+
+    b {
+      display: none;
+    }
+  }
 }
 
 .header-info__item {
-
-
   &::before {
     content: "";
     display: inline-block;
@@ -22,6 +29,17 @@
     background-size: contain;
   }
 
+  @include mq-max(666px) {
+    @include calc-column-width(2, 20px);
+
+    font-size: 15px;
+
+    &::before {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
   @include mq-min(667px) {
     font-size: 15px;
   }
@@ -32,25 +50,33 @@
 }
 
 .header-info__orders {
-  margin: 0;
-  margin-bottom: 8px;
-
   &::before {
     background-image: url("images/icon-clock-outline.svg");
+  }
+
+  @include mq-min(667px) {
+    margin: 0;
+    margin-bottom: 8px;
   }
 }
 
 .header-info__delivery {
-  margin: 0;
-
   &::before {
     background-image: url("images/icon-kick-scooter.svg");
+  }
+
+  @include mq-min(667px) {
+    margin: 0;
   }
 }
 
 .header-info__note {
   display: block;
-  padding-left: 28px;
-  font-size: 80%;
+  padding-left: calc(22px + 6px);
+  font-size: 0.8em;
   color: $muted-color;
+
+  @include mq-max(666px) {
+    padding-left: calc(28px + 6px);
+  }
 }
