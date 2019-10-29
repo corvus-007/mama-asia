@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return /\+7\ \(\d{3}\)\ \d{3}\-\d{2}\-\d{2}/g.test(value);
   }, 'Заполните номер телефона');
 
+
+
   $('#offer-form').validate({
     submitHandler: function (form) {
       var data = {
@@ -36,6 +38,39 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     rules: {
       'offer_phone': {
+        checkPhoneMask: true
+      }
+    }
+  });
+
+  $('.contact-form').validate({
+    submitHandler: function (form) {
+      var data = {
+        v: {
+          name: $('[name="user_name"]', form).val(),
+          email: $('[name="user_email"]', form).val(),
+          phone: $('[name="user_phone"]', form).val(),
+          message: $('[name="user_message"]', form).val(),
+        }
+      };
+
+      window.util.sendAjax('/index.php?mode=ajax&f=contact', data, function (data) {
+        if (data.status == 2) {
+          alert('Спасибо за обращение! Форма успешно отправлена!');
+          $.cookie('offerPopup', 1, {
+            expires: 30,
+            path: '/'
+          });
+          window.location.href = '/';
+        } else {
+          alert('Произошла ошибка! Обновите страницу и попробуйте снова!');
+        }
+      }, function () {
+        alert('Произошла ошибка! Обновите страницу и попробуйте снова!');
+      });
+    },
+    rules: {
+      'user_phone': {
         checkPhoneMask: true
       }
     }
