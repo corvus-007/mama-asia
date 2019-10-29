@@ -39,6 +39,7 @@ window.util = (function () {
     },
     sendAjax: function (url, data, successHandler, errorHandler) {
       $.ajax({
+          type: 'post',
           url: url,
           data: data,
           async: true,
