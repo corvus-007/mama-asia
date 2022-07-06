@@ -30,7 +30,7 @@
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.2",
     "inputmask": "^4.0.2",
-    "jquery-validation": "^1.19.0",
+    "jquery-validation": "^1.19.5",
     "jquery-zoom": "^1.7.21",
     "js-cookie": "^2.2.0",
     "scrollmagic": "^2.0.6",
